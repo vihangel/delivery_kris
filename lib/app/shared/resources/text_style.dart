@@ -16,11 +16,11 @@ class TextStyles {
     color: ColorsApp.gray,
   );
   static final titleCard = GoogleFonts.lexend(
-    fontSize: 10.sp,
+    fontSize: 12.sp,
     fontWeight: FontWeight.bold,
     color: ColorsApp.white,
   );
-  static final subCard = GoogleFonts.lexend(
+  static final subTitleCard = GoogleFonts.lexend(
     fontSize: 10.sp,
     fontWeight: FontWeight.bold,
     color: ColorsApp.gray,
