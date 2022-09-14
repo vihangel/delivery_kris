@@ -5,22 +5,22 @@ import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart';
 
 class TextStyles {
-  static final title = GoogleFonts.lexendDeca(
+  static final title = GoogleFonts.lexend(
     fontSize: 20.sp,
     fontWeight: FontWeight.bold,
     color: ColorsApp.white,
   );
 
-  static final regular = GoogleFonts.lexendDeca(
+  static final regular = GoogleFonts.lexend(
     fontSize: 14.sp,
     color: ColorsApp.gray,
   );
-  static final titleCard = GoogleFonts.lexendDeca(
+  static final titleCard = GoogleFonts.lexend(
     fontSize: 10.sp,
     fontWeight: FontWeight.bold,
     color: ColorsApp.white,
   );
-  static final subCard = GoogleFonts.lexendDeca(
+  static final subCard = GoogleFonts.lexend(
     fontSize: 10.sp,
     fontWeight: FontWeight.bold,
     color: ColorsApp.gray,

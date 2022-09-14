@@ -4,15 +4,28 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../shared/resources/images.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
+
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.pushReplacementNamed(context, '/warning');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: SvgPicture.asset(
-        ImagesApp.logo,
-        height: 173.h,
+        ImagesApp.logoWithText,
+        width: 220.w,
       ),
     );
   }
