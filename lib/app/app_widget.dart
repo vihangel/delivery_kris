@@ -22,10 +22,7 @@ class AppWidget extends StatelessWidget {
         },
         debugShowCheckedModeBanner: false,
         title: 'Delivery Kris',
-        theme: ThemeData(
-            fontFamily: 'Lexend',
-            primarySwatch: ColorsApp.primarySwatch,
-            canvasColor: Colors.transparent),
+        theme: ColorsApp.theme,
         routeInformationParser: Modular.routeInformationParser,
         routerDelegate: Modular.routerDelegate,
       ),

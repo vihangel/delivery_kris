@@ -21,6 +21,9 @@ class ColorsApp {
   });
 
   static final ThemeData theme = ThemeData(
+    fontFamily: 'Lexend',
+    primarySwatch: ColorsApp.primarySwatch,
+    canvasColor: Colors.transparent,
     primaryColor: primarySwatch,
     primaryColorLight: primary,
     inputDecorationTheme: const InputDecorationTheme(
