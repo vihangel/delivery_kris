@@ -38,14 +38,19 @@ class HomePage extends StatelessWidget {
           height: 20,
         ),
         GridView.count(
-            shrinkWrap: true,
-            crossAxisCount: 2,
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            crossAxisSpacing: 30.w,
-            mainAxisSpacing: 30.h,
-            children: List.generate(6, (index) {
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          crossAxisCount: 2,
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          crossAxisSpacing: 30.w,
+          mainAxisSpacing: 30.h,
+          children: List.generate(
+            10,
+            (index) {
               return _cards(size);
-            })),
+            },
+          ),
+        ),
       ],
     );
   }
@@ -79,6 +84,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScrollController scrollController = ScrollController();
     final size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
@@ -106,9 +112,15 @@ class HomePage extends StatelessWidget {
           ],
         ),
         body: Padding(
-          padding: EdgeInsets.only(top: 20.h, left: 20.w, right: 20.w),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: ListView(
+            controller: scrollController,
+            physics: const BouncingScrollPhysics(),
+            shrinkWrap: true,
             children: [
+              SizedBox(
+                height: 20.h,
+              ),
               Text(
                 "Linha do tempo",
                 style: TextStyles.title,
