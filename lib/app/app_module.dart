@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'modules/home/home_controller.dart';
 import 'modules/home/home_page.dart';
 import 'modules/splash/splash_page.dart';
+import 'modules/story/story_page.dart';
 import 'modules/warning/warning_page.dart';
 
 class AppModule extends Module {

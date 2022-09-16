@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../shared/resources/colors.dart';
 import '../../shared/resources/text_style.dart';
 import '../../shared/widget/cards/card_widget.dart';
+import '../story/story_page.dart';
 import 'home_controller.dart';
 
 final controller = Modular.get<HomeController>();
@@ -69,12 +70,24 @@ class _HomePageState extends State<HomePage> {
             controller.data[topic].infos!.length,
             (index) {
               return CardWidget(
+                onTap: () async {
+                  Modular.to.push(
+                    MaterialPageRoute(
+                      builder: (context) => StoryPage(
+                        story: controller.data[topic].infos![index],
+                      ),
+                    ),
+                  );
+                },
                 icon: controller.data[topic].infos![index].icon ?? 'kris.png',
                 subTitle: controller.data[topic].infos![index].subTitle ?? '',
                 title: controller.data[topic].infos![index].title ?? '',
               );
             },
           ),
+        ),
+        SizedBox(
+          height: size.height * 0.2,
         ),
       ],
     );
@@ -184,6 +197,13 @@ class _HomePageState extends State<HomePage> {
                                 controller.data[topic].infos!.length,
                                 (index) {
                                   return CardWidget(
+                                    onTap: () async {
+                                      await Modular.to.pushNamed(
+                                        '/story',
+                                        arguments: controller
+                                            .data[topic].infos![index],
+                                      );
+                                    },
                                     icon: controller
                                             .data[topic].infos![index].icon ??
                                         'kris.png',
@@ -196,6 +216,9 @@ class _HomePageState extends State<HomePage> {
                                   );
                                 },
                               ),
+                            ),
+                            SizedBox(
+                              height: size.height * 0.05,
                             ),
                           ],
                         );
