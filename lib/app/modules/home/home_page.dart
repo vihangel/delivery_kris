@@ -198,10 +198,13 @@ class _HomePageState extends State<HomePage> {
                                 (index) {
                                   return CardWidget(
                                     onTap: () async {
-                                      await Modular.to.pushNamed(
-                                        '/story',
-                                        arguments: controller
-                                            .data[topic].infos![index],
+                                      Modular.to.push(
+                                        MaterialPageRoute(
+                                          builder: (context) => StoryPage(
+                                            story: controller
+                                                .data[topic].infos![index],
+                                          ),
+                                        ),
                                       );
                                     },
                                     icon: controller
