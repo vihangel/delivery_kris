@@ -7,19 +7,14 @@ part of 'topic_model.dart';
 // **************************************************************************
 
 TopicModel _$TopicModelFromJson(Map<String, dynamic> json) => TopicModel(
-      title: json['title'] as String?,
-      subTitle: json['subTitle'] as String?,
-      icon: json['icon'] as String?,
-      information: json['information'] == null
-          ? null
-          : InformationModel.fromJson(
-              json['information'] as Map<String, dynamic>),
+      topic: json['topic'] as String?,
+      infos: (json['infos'] as List<dynamic>?)
+          ?.map((e) => StoryIconModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$TopicModelToJson(TopicModel instance) =>
     <String, dynamic>{
-      'title': instance.title,
-      'subTitle': instance.subTitle,
-      'icon': instance.icon,
-      'information': instance.information,
+      'topic': instance.topic,
+      'infos': instance.infos,
     };

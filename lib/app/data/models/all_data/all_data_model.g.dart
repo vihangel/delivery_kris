@@ -7,12 +7,12 @@ part of 'all_data_model.dart';
 // **************************************************************************
 
 AllDataModel _$AllDataModelFromJson(Map<String, dynamic> json) => AllDataModel(
-      topic: (json['topic'] as List<dynamic>?)
+      allData: (json['allData'] as List<dynamic>?)
           ?.map((e) => TopicModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$AllDataModelToJson(AllDataModel instance) =>
     <String, dynamic>{
-      'topic': instance.topic,
+      'allData': instance.allData,
     };

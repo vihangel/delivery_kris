@@ -1,19 +1,25 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../information/information_model.dart';
+
 part 'story_icon_model.g.dart';
 
 @JsonSerializable()
 class StoryIconModel {
   final String? title;
 
-  final String? subtitle;
+  @JsonKey(name: "sub_title")
+  final String? subTitle;
 
-  final String? img;
+  final String? icon;
 
-  StoryIconModel({
+  final InformationModel? information;
+
+  StoryIconModel(
+    this.information, {
     this.title,
-    this.subtitle,
-    this.img,
+    this.subTitle,
+    this.icon,
   });
 
   factory StoryIconModel.fromJson(Map<String, dynamic> json) =>
