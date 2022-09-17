@@ -6,17 +6,17 @@ import 'colors.dart';
 
 class TextStyles {
   static final title = GoogleFonts.lexend(
-    fontSize: 20.sp,
+    fontSize: 24.sp,
     fontWeight: FontWeight.bold,
     color: ColorsApp.white,
   );
 
   static final regular = GoogleFonts.lexend(
-    fontSize: 14.sp,
+    fontSize: 18.sp,
     color: ColorsApp.gray,
   );
   static final titleCard = GoogleFonts.lexend(
-    fontSize: 12.sp,
+    fontSize: 14.sp,
     fontWeight: FontWeight.bold,
     color: ColorsApp.white,
   );

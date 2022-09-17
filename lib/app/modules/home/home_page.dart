@@ -110,7 +110,12 @@ class _HomePageState extends State<HomePage> {
         foregroundColor: ColorsApp.white,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Image.asset('assets/img/kris.png'),
+        leading: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Image.asset(
+            'assets/img/kris.png',
+          ),
+        ),
         title: Text(
           'DELIVERY KRIS',
           style: TextStyles.title,

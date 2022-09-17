@@ -92,13 +92,15 @@ class StoryPage extends StatelessWidget {
               Container(
                 width: size.width,
                 decoration: BoxDecoration(
-                  color: ColorsApp.gray,
                   borderRadius: BorderRadius.circular(30.r),
                 ),
                 child: Image.asset(
                   'assets/img/${story.information!.img![0]}',
                   fit: BoxFit.cover,
                 ),
+              ),
+              SizedBox(
+                height: 60.h,
               ),
             ],
           ),
