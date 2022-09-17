@@ -15,7 +15,7 @@
             }
           },
           {
-            "title": "Encontro",
+            "title": "Eureka",
             "sub_title": "10 de Abril",
             "icon": "icon_1.png",
             "information": {
@@ -23,17 +23,8 @@
               "img": ["icon_1.png", "icon_1.png"],
               "voice": "icon_1.png"
             }
-          },
-          {
-            "title": "3",
-            "sub_title": "11 de Abril",
-            "icon": "kris.png",
-            "information": {
-              "text": "blabla",
-              "img": ["icon_1.png", "icon_1.png"],
-              "voice": "icon_1.png"
-            }
           }
+   
         ]
       },
       {
@@ -55,13 +46,13 @@
         "topic": "Setembro",
         "infos": [
           {
-            "title": "1",
-            "sub_title": "9 de Abril",
-            "icon": "icon_1.png",
+            "title": "Montanha-russa",
+            "sub_title": "11 de Setembro",
+            "icon": "montanha_russa_icon.png",
             "information": {
-              "text": "blabla",
-              "img": ["icon_1.png", "icon_1.png"],
-              "voice": "icon_1.png"
+              "text": "O dia começou um desastre total\nVocê nem queria sair da cama, absurdo!\n\nDurante a tarde eu te fiz escolher um lugar para ir, você inclusive tentou comer um risoto de rúcula em um restaurante e obviamente não era igual o meu\n\nDepois conhecemos um lugar chamado Centro Cultural Recoleta e tinha uma fucking batalha de rap, simplesmente incrivel né???\n\nFoi hoje que comecei esse app e você ainda me ajudou",
+              "img": ["montanha_russa.png"],
+              "voice": ""
             }
           }, {
             "title": "1",

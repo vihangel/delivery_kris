@@ -22,12 +22,20 @@ class CardWidget extends StatelessWidget {
       onTap: onTap,
       child: Column(
         children: [
+          // Expanded(
+          //   child: AspectRatio(
+          //     aspectRatio: 1.5,
+          //     child: Image.asset(
+          //       'assets/img/$icon',
+          //       fit: BoxFit.cover,
+          //     ),
+          //   ),
+          // ),
           Expanded(
-            child: Image.asset(
-              'assets/img/$icon',
-              fit: BoxFit.fill,
-            ),
-          ),
+              child: Image.asset(
+            'assets/img/$icon',
+            fit: BoxFit.cover,
+          )),
           SizedBox(
             height: 2.h,
           ),
