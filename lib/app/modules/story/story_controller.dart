@@ -16,8 +16,27 @@ abstract class _StoryControllerBase with Store {
   @observable
   bool isPaused = false;
 
+  @action
+  getPosition() async {
+    final time = await players.getCurrentPosition();
+    positionSlider = time!.inSeconds.toDouble();
+  }
+
   @observable
   Duration? duration;
+
+  @action
+  String label() {
+    String label = '';
+    if (positionSlider < 60) {
+      label = '00:${positionSlider.toInt()}s';
+    } else {
+      label =
+          '${(positionSlider ~/ 60).toInt()}:${(positionSlider % 60).toInt()}s';
+    }
+
+    return label;
+  }
 
   @action
   onChangeSlider(value) async {
@@ -25,12 +44,5 @@ abstract class _StoryControllerBase with Store {
     positionSlider = value;
     players
         .seek(Duration(seconds: int.parse(positionSlider.round().toString())));
-    // int result = await players.seek(Duration(milliseconds: seekval));
-    // if (result == 1) {
-    //   //seek successful
-    //   currentpos = seekval;
-    // } else {
-    //   print("Seek unsuccessful.");
-    // }
   }
 }

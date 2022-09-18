@@ -33,6 +33,7 @@ class _StoryPageState extends State<StoryPage> {
   }
 
   getValues() async {
+    controller.duration = null;
     // play
     // duration = await controller.players.getDuration();
     // print(duration);
@@ -64,41 +65,42 @@ class _StoryPageState extends State<StoryPage> {
         ),
         actions: [
           Observer(builder: (context) {
+            controller.getPosition();
+
             return controller.duration != null
                 ? Row(
                     children: [
+                      Text(controller.label(), style: TextStyles.subTitleCard),
                       SizedBox(
-                        width: 250.w,
+                        width: 220.w,
                         child: Slider(
                           value: double.parse(
                               controller.positionSlider.toString()),
                           min: 0,
                           max: double.parse(
                               controller.duration!.inSeconds.toString()),
-                          divisions: 100,
+                          divisions: int.parse(
+                              controller.duration!.inSeconds.toString()),
                           //  duration!.inSeconds,
-                          // label: currentpostlabel,
+                          label: controller.label(),
                           onChangeEnd: controller.onChangeSlider,
-                          onChanged: (double value) {},
+                          onChanged: controller.onChangeSlider,
                         ),
                       ),
                       !controller.isPaused
                           ? IconButton(
                               onPressed: () {
-                                controller.players.stop();
+                                controller.players.pause();
                                 controller.isPaused = true;
-                                print(controller.isPaused);
                               },
                               icon: Icon(Icons.pause),
                             )
                           : IconButton(
-                              onPressed: () {
-                                controller.players.seek(Duration(
-                                    seconds: int.parse(controller.positionSlider
-                                        .round()
-                                        .toString())));
+                              onPressed: () async {
+                                await controller.players.play(AssetSource(
+                                    'audio/${widget.story.information!.voice}'));
+
                                 controller.isPaused = false;
-                                print(controller.isPaused);
                               },
                               icon: const Icon(Icons.play_arrow_rounded)),
                     ],
@@ -140,6 +142,7 @@ class _StoryPageState extends State<StoryPage> {
                           onPressed: () async {
                             await controller.players.play(AssetSource(
                                 'audio/${widget.story.information!.voice}'));
+
                             controller.duration == null
                                 ? controller.duration =
                                     (await controller.players.getDuration())!

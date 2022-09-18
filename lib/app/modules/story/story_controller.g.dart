@@ -55,12 +55,34 @@ mixin _$StoryController on _StoryControllerBase, Store {
     });
   }
 
+  final _$getPositionAsyncAction =
+      AsyncAction('_StoryControllerBase.getPosition');
+
+  @override
+  Future getPosition() {
+    return _$getPositionAsyncAction.run(() => super.getPosition());
+  }
+
   final _$onChangeSliderAsyncAction =
       AsyncAction('_StoryControllerBase.onChangeSlider');
 
   @override
   Future onChangeSlider(dynamic value) {
     return _$onChangeSliderAsyncAction.run(() => super.onChangeSlider(value));
+  }
+
+  final _$_StoryControllerBaseActionController =
+      ActionController(name: '_StoryControllerBase');
+
+  @override
+  String label() {
+    final _$actionInfo = _$_StoryControllerBaseActionController.startAction(
+        name: '_StoryControllerBase.label');
+    try {
+      return super.label();
+    } finally {
+      _$_StoryControllerBaseActionController.endAction(_$actionInfo);
+    }
   }
 
   @override
