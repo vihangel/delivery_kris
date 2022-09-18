@@ -1,5 +1,11 @@
+import 'dart:typed_data';
+
+import 'package:audioplayers/audioplayers.dart';
 import 'package:delivery_kris/app/data/models/story/story_icon_model.dart';
+import 'package:delivery_kris/app/modules/story/story_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,9 +13,30 @@ import '../../shared/resources/colors.dart';
 import '../../shared/resources/text_style.dart';
 import '../../shared/widget/cards/card_widget.dart';
 
-class StoryPage extends StatelessWidget {
+final controller = Modular.get<StoryController>();
+
+class StoryPage extends StatefulWidget {
   final StoryIconModel story;
   const StoryPage({Key? key, required this.story}) : super(key: key);
+
+  @override
+  State<StoryPage> createState() => _StoryPageState();
+}
+
+class _StoryPageState extends State<StoryPage> {
+  Duration? position = const Duration(seconds: 1);
+
+  @override
+  void initState() {
+    getValues();
+    super.initState();
+  }
+
+  getValues() async {
+    // play
+    // duration = await controller.players.getDuration();
+    // print(duration);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,16 +57,55 @@ class StoryPage extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           onPressed: () {
+            controller.players.stop();
             Modular.to.pop();
           },
           icon: Icon(Icons.close),
         ),
-        // actions: [
-        //   IconButton(
-        //     onPressed: () {},
-        //     icon: Icon(Icons.close),
-        //   ),
-        // ],
+        actions: [
+          Observer(builder: (context) {
+            return controller.duration != null
+                ? Row(
+                    children: [
+                      SizedBox(
+                        width: 250.w,
+                        child: Slider(
+                          value: double.parse(
+                              controller.positionSlider.toString()),
+                          min: 0,
+                          max: double.parse(
+                              controller.duration!.inSeconds.toString()),
+                          divisions: 100,
+                          //  duration!.inSeconds,
+                          // label: currentpostlabel,
+                          onChangeEnd: controller.onChangeSlider,
+                          onChanged: (double value) {},
+                        ),
+                      ),
+                      !controller.isPaused
+                          ? IconButton(
+                              onPressed: () {
+                                controller.players.stop();
+                                controller.isPaused = true;
+                                print(controller.isPaused);
+                              },
+                              icon: Icon(Icons.pause),
+                            )
+                          : IconButton(
+                              onPressed: () {
+                                controller.players.seek(Duration(
+                                    seconds: int.parse(controller.positionSlider
+                                        .round()
+                                        .toString())));
+                                controller.isPaused = false;
+                                print(controller.isPaused);
+                              },
+                              icon: const Icon(Icons.play_arrow_rounded)),
+                    ],
+                  )
+                : Container();
+          }),
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -56,9 +122,9 @@ class StoryPage extends StatelessWidget {
               SizedBox(
                 height: 150.h,
                 child: CardWidget(
-                  icon: story.icon ?? 'kris.png',
-                  subTitle: story.subTitle ?? '',
-                  title: story.title ?? '',
+                  icon: widget.story.icon ?? 'kris.png',
+                  subTitle: widget.story.subTitle ?? '',
+                  title: widget.story.title ?? '',
                 ),
               ),
               SizedBox(
@@ -67,22 +133,34 @@ class StoryPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  story.information!.voice != null
+                  widget.story.information!.voice != null
                       ? IconButton(
                           icon: const Icon(Icons.volume_up,
                               color: ColorsApp.white),
-                          onPressed: () {},
+                          onPressed: () async {
+                            await controller.players.play(AssetSource(
+                                'audio/${widget.story.information!.voice}'));
+                            controller.duration == null
+                                ? controller.duration =
+                                    (await controller.players.getDuration())!
+                                : controller.players.seek(Duration(
+                                    seconds: int.parse(controller.positionSlider
+                                        .round()
+                                        .toString())));
+                            print(
+                                'Duration: ${controller.duration!.inSeconds}');
+                          },
                         )
                       : Container(),
                   Text(
-                    story.title ?? '',
+                    widget.story.title ?? '',
                     style: TextStyles.title,
                     textAlign: TextAlign.center,
                   ),
                 ],
               ),
               Text(
-                story.information!.text!,
+                widget.story.information!.text!,
                 style: TextStyles.regular,
                 textAlign: TextAlign.center,
               ),
@@ -95,7 +173,7 @@ class StoryPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30.r),
                 ),
                 child: Image.asset(
-                  'assets/img/${story.information!.img![0]}',
+                  'assets/img/${widget.story.information!.img![0]}',
                   fit: BoxFit.cover,
                 ),
               ),

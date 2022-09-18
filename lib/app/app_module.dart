@@ -1,3 +1,5 @@
+import 'package:delivery_kris/app/modules/story/story_controller.dart';
+
 import 'app_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -12,6 +14,7 @@ class AppModule extends Module {
   final List<Bind> binds = [
     Bind.lazySingleton((i) => AppController()),
     Bind.lazySingleton((i) => HomeController()),
+    Bind.lazySingleton((i) => StoryController()),
   ];
 
   @override

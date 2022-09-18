@@ -11,7 +11,7 @@
             "information": {
               "text": "Começando pela primeira vez que a gente se viu né?\n\nPoperia Vegas\n\n O caos instalado, eu procurando não sei quem, você resolvendo BO de Clay, amigos passando mal, até que...\n\nPOR 3 SEGUNDOS\nUMA TROCA DE OLHARES MÁGICA\nSURREAL\nDE OUTRO MUNDO\n\nE que logo em seguida simplesmente sumiu puff\n\n~vazio existencial~",
               "img": ["poperia.png"],
-              "voice": null
+              "voice": "ponto_de_encontro.mp3"
             }
           },
           {
@@ -55,6 +55,27 @@
             }
           },
           {
+            "title": "Miei a POP",
+            "sub_title": "9 de Agosto",
+            "icon": "risoto_icon.png",
+            "information": {
+              "text": "O dia começou um desastre total\nVocê nem queria sair da cama, absurdo!\n\nDurante a tarde eu te fiz escolher um lugar para ir, você inclusive tentou comer um risoto de rúcula em um restaurante e obviamente não era igual o meu\n\nDepois conhecemos um lugar chamado Centro Cultural Recoleta e tinha uma fucking batalha de rap, simplesmente incrivel né???\n\nFoi hoje que comecei esse app e você ainda me ajudou",
+              "img": ["afrodisiacos2.jpg"],
+              "voice": null
+            }
+          },
+          {
+            "title": "Noite de Jogos",
+            "sub_title": "9 de Agosto",
+            "icon": "risoto_icon.png",
+            "information": {
+              "text": "O dia começou um desastre total\nVocê nem queria sair da cama, absurdo!\n\nDurante a tarde eu te fiz escolher um lugar para ir, você inclusive tentou comer um risoto de rúcula em um restaurante e obviamente não era igual o meu\n\nDepois conhecemos um lugar chamado Centro Cultural Recoleta e tinha uma fucking batalha de rap, simplesmente incrivel né???\n\nFoi hoje que comecei esse app e você ainda me ajudou",
+              "img": ["afrodisiacos2.jpg"],
+              "voice": null
+            }
+          },
+
+          {
             "title": "Afrodisíaco Parte II",
             "sub_title": "27 de Agosto",
             "icon": "afrodisiacos2_icon.png",
@@ -66,7 +87,6 @@
           }
         ]
       },
-  
 
       {
         "topic": "Setembro",
@@ -78,7 +98,7 @@
             "information": {
               "text": "O dia começou um desastre total\nVocê nem queria sair da cama, absurdo!\n\nDurante a tarde eu te fiz escolher um lugar para ir, você inclusive tentou comer um risoto de rúcula em um restaurante e obviamente não era igual o meu\n\nDepois conhecemos um lugar chamado Centro Cultural Recoleta e tinha uma fucking batalha de rap, simplesmente incrivel né???\n\nFoi hoje que comecei esse app e você ainda me ajudou",
               "img": ["edward_cullen.png"],
-              "voice":null
+              "voice": null
             }
           },
           {
@@ -91,7 +111,6 @@
               "voice": null
             }
           }
-        
         ]
       }
     ]
