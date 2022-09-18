@@ -34,9 +34,8 @@ class _StoryPageState extends State<StoryPage> {
 
   getValues() async {
     controller.duration = null;
-    // play
-    // duration = await controller.players.getDuration();
-    // print(duration);
+    controller.positionSlider = 0;
+    controller.isPaused = false;
   }
 
   @override
@@ -61,7 +60,7 @@ class _StoryPageState extends State<StoryPage> {
             controller.players.stop();
             Modular.to.pop();
           },
-          icon: Icon(Icons.close),
+          icon: const Icon(Icons.close),
         ),
         actions: [
           Observer(builder: (context) {
@@ -93,7 +92,7 @@ class _StoryPageState extends State<StoryPage> {
                                 controller.players.pause();
                                 controller.isPaused = true;
                               },
-                              icon: Icon(Icons.pause),
+                              icon: const Icon(Icons.pause),
                             )
                           : IconButton(
                               onPressed: () async {
