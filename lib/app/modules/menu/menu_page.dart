@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../shared/resources/colors.dart';
 import '../../shared/resources/text_style.dart';
@@ -100,8 +99,8 @@ class MenuPage extends StatelessWidget {
                             shape: const CircleBorder(),
                           ),
                           onPressed: () async {
-                            await launchUrl(Uri(
-                                path: 'https://www.instagram.com/kr.sanches/'));
+                            // await launchUrl(Uri(
+                            //     path: 'https://www.instagram.com/kr.sanches/'));
                           },
                           child: const Icon(
                             FontAwesomeIcons.instagram,
@@ -125,14 +124,20 @@ class MenuPage extends StatelessWidget {
                             shape: const CircleBorder(),
                           ),
                           onPressed: () async {
-                            await launchUrl(Uri(
-                                path: 'https://www.instagram.com/kr.sanches/'));
+                            // await launchUrl(Uri(
+                            //     path:
+                            //         'https://github.com/vihangel/delivery_kris'));
                           },
                           child: const Icon(
                             FontAwesomeIcons.github,
                             size: 35,
                           ),
                         ),
+                      ),
+                      Text(
+                        "delivery_kris",
+                        style: TextStyles.regular,
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),
@@ -145,8 +150,8 @@ class MenuPage extends StatelessWidget {
                             shape: const CircleBorder(),
                           ),
                           onPressed: () async {
-                            await launchUrl(Uri(
-                                path: 'https://www.instagram.com/kr.sanches/'));
+                            // await launchUrl(Uri(
+                            //     path: 'https://www.instagram.com/vih.angel/'));
                           },
                           child: const Icon(
                             FontAwesomeIcons.instagram,
