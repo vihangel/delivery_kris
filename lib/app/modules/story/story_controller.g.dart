@@ -59,16 +59,17 @@ mixin _$StoryController on _StoryControllerBase, Store {
       AsyncAction('_StoryControllerBase.getPosition');
 
   @override
-  Future getPosition() {
-    return _$getPositionAsyncAction.run(() => super.getPosition());
+  Future getPosition(dynamic players) {
+    return _$getPositionAsyncAction.run(() => super.getPosition(players));
   }
 
   final _$onChangeSliderAsyncAction =
       AsyncAction('_StoryControllerBase.onChangeSlider');
 
   @override
-  Future onChangeSlider(dynamic value) {
-    return _$onChangeSliderAsyncAction.run(() => super.onChangeSlider(value));
+  Future onChangeSlider(double value, AudioPlayer players) {
+    return _$onChangeSliderAsyncAction
+        .run(() => super.onChangeSlider(value, players));
   }
 
   final _$_StoryControllerBaseActionController =

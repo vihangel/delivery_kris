@@ -14,6 +14,7 @@ import '../../shared/resources/text_style.dart';
 import '../../shared/widget/cards/card_widget.dart';
 
 final controller = Modular.get<StoryController>();
+AudioPlayer players = AudioPlayer();
 
 class StoryPage extends StatefulWidget {
   final StoryIconModel story;
@@ -24,18 +25,22 @@ class StoryPage extends StatefulWidget {
 }
 
 class _StoryPageState extends State<StoryPage> {
-  Duration? position = const Duration(seconds: 1);
-
   @override
   void initState() {
-    getValues();
     super.initState();
+    getValues();
   }
 
-  getValues() async {
+  getValues() {
     controller.duration = null;
-    controller.positionSlider = 0;
+    controller.positionSlider = 0.0;
     controller.isPaused = false;
+  }
+
+  @override
+  void dispose() {
+    players.stop();
+    super.dispose();
   }
 
   @override
@@ -57,52 +62,67 @@ class _StoryPageState extends State<StoryPage> {
         elevation: 0,
         leading: IconButton(
           onPressed: () {
-            controller.players.stop();
             Modular.to.pop();
           },
           icon: const Icon(Icons.close),
         ),
         actions: [
           Observer(builder: (context) {
-            controller.getPosition();
+            controller.getPosition(players);
 
-            return controller.duration != null
-                ? Row(
-                    children: [
-                      Text(controller.label(), style: TextStyles.subTitleCard),
-                      SizedBox(
-                        width: 220.w,
-                        child: Slider(
-                          value: double.parse(
-                              controller.positionSlider.toString()),
-                          min: 0,
-                          max: double.parse(
-                              controller.duration!.inSeconds.toString()),
-                          divisions: int.parse(
-                              controller.duration!.inSeconds.toString()),
-                          //  duration!.inSeconds,
-                          label: controller.label(),
-                          onChangeEnd: controller.onChangeSlider,
-                          onChanged: controller.onChangeSlider,
+            return controller.duration != null &&
+                    controller.duration != Duration.zero
+                ? Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(controller.label(),
+                            style: TextStyles.subTitleCard),
+                        SizedBox(
+                          width: 150.w,
+                          child: Slider(
+                            value: double.parse(
+                                controller.positionSlider.toString()),
+                            min: 0,
+                            max: double.parse(
+                                controller.duration!.inSeconds.toString()),
+                            divisions: int.parse(
+                                controller.duration!.inSeconds.toString()),
+                            //  duration!.inSeconds,
+                            label: controller.label(),
+                            onChangeEnd: (value) {
+                              controller.onChangeSlider(value, players);
+                            },
+                            onChanged: (value) {
+                              controller.onChangeSlider(value, players);
+                            },
+                          ),
                         ),
-                      ),
-                      !controller.isPaused
-                          ? IconButton(
-                              onPressed: () {
-                                controller.players.pause();
-                                controller.isPaused = true;
-                              },
-                              icon: const Icon(Icons.pause),
-                            )
-                          : IconButton(
-                              onPressed: () async {
-                                await controller.players.play(AssetSource(
-                                    'audio/${widget.story.information!.voice}'));
+                        !controller.isPaused
+                            ? IconButton(
+                                onPressed: () {
+                                  players.pause();
+                                  controller.isPaused = true;
+                                },
+                                icon: const Icon(Icons.pause),
+                              )
+                            : IconButton(
+                                onPressed: () async {
+                                  players.resume();
 
-                                controller.isPaused = false;
-                              },
-                              icon: const Icon(Icons.play_arrow_rounded)),
-                    ],
+                                  controller.isPaused = false;
+                                },
+                                icon: const Icon(Icons.play_arrow_rounded)),
+                        TextButton(
+                          onPressed: () {
+                            controller.setPlayback(players);
+                            controller.isPaused = true;
+                          },
+                          child: Text("${controller.playBack}x",
+                              style: TextStyles.subTitleCard),
+                        ),
+                      ],
+                    ),
                   )
                 : Container();
           }),
@@ -139,16 +159,15 @@ class _StoryPageState extends State<StoryPage> {
                           icon: const Icon(Icons.volume_up,
                               color: ColorsApp.white),
                           onPressed: () async {
-                            await controller.players.play(AssetSource(
-                                'audio/${widget.story.information!.voice}'));
+                            await players.play(
+                              AssetSource(
+                                  'audio/${widget.story.information!.voice}'),
+                            );
 
-                            controller.duration == null
-                                ? controller.duration =
-                                    (await controller.players.getDuration())!
-                                : controller.players.seek(Duration(
-                                    seconds: int.parse(controller.positionSlider
-                                        .round()
-                                        .toString())));
+                            controller.isPaused = false;
+
+                            controller.duration = await players.getDuration();
+
                             print(
                                 'Duration: ${controller.duration!.inSeconds}');
                           },

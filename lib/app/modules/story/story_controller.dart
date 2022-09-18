@@ -6,8 +6,6 @@ part 'story_controller.g.dart';
 class StoryController = _StoryControllerBase with _$StoryController;
 
 abstract class _StoryControllerBase with Store {
-  AudioPlayer players = AudioPlayer();
-
   // @observable
   // List<TopicModel> data = ObservableList();
   @observable
@@ -16,8 +14,20 @@ abstract class _StoryControllerBase with Store {
   @observable
   bool isPaused = false;
 
+  @observable
+  double playBack = 1.0;
+
   @action
-  getPosition() async {
+  setPlayback(AudioPlayer players) async {
+    playBack += 0.5;
+    if (playBack > 3.0) {
+      playBack = 0.5;
+    }
+    players.setPlaybackRate(playBack);
+  }
+
+  @action
+  getPosition(players) async {
     final time = await players.getCurrentPosition();
     positionSlider = time!.inSeconds.toDouble();
   }
@@ -39,9 +49,9 @@ abstract class _StoryControllerBase with Store {
   }
 
   @action
-  onChangeSlider(value) async {
+  onChangeSlider(double value, AudioPlayer players) async {
     print(value);
-    positionSlider = value;
+    positionSlider = value.roundToDouble();
     players
         .seek(Duration(seconds: int.parse(positionSlider.round().toString())));
   }
