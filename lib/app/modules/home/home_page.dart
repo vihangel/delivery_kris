@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../shared/resources/colors.dart';
 import '../../shared/resources/text_style.dart';
 import '../../shared/widget/cards/card_widget.dart';
+import '../menu/menu_page.dart';
 import '../story/story_page.dart';
 import 'home_controller.dart';
 
@@ -28,69 +29,6 @@ class _HomePageState extends State<HomePage> {
 
   void loadJsonData() async {
     await controller.loadJsonData();
-  }
-
-  _sections(size, topic) {
-    return Column(
-      children: [
-        Row(
-          children: [
-            Expanded(
-              child: Container(
-                color: ColorsApp.gray,
-                height: 1,
-              ),
-            ),
-            Expanded(
-              child: Text(
-                controller.data[topic].topic!,
-                style: TextStyles.title,
-                textAlign: TextAlign.center,
-              ),
-            ),
-            Expanded(
-              child: Container(
-                color: ColorsApp.gray,
-                height: 1,
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        GridView.count(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          crossAxisCount: 2,
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          crossAxisSpacing: 30.w,
-          mainAxisSpacing: 30.h,
-          children: List.generate(
-            controller.data[topic].infos!.length,
-            (index) {
-              return CardWidget(
-                onTap: () async {
-                  Modular.to.push(
-                    MaterialPageRoute(
-                      builder: (context) => StoryPage(
-                        story: controller.data[topic].infos![index],
-                      ),
-                    ),
-                  );
-                },
-                icon: controller.data[topic].infos![index].icon ?? 'kris.png',
-                subTitle: controller.data[topic].infos![index].subTitle ?? '',
-                title: controller.data[topic].infos![index].title ?? '',
-              );
-            },
-          ),
-        ),
-        SizedBox(
-          height: size.height * 0.2,
-        ),
-      ],
-    );
   }
 
   @override
@@ -122,7 +60,13 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Modular.to.push(
+                MaterialPageRoute(
+                  builder: (context) => MenuPage(),
+                ),
+              );
+            },
             icon: SvgPicture.asset('assets/img/menu.svg'),
           ),
         ],
@@ -172,7 +116,8 @@ class _HomePageState extends State<HomePage> {
                                     height: 1,
                                   ),
                                 ),
-                                Expanded(
+                                Padding(
+                                  padding: const EdgeInsets.all(20.0),
                                   child: Text(
                                     controller.data[topic].topic!,
                                     style: TextStyles.title,

@@ -40,6 +40,21 @@ mixin _$StoryController on _StoryControllerBase, Store {
     });
   }
 
+  final _$playBackAtom = Atom(name: '_StoryControllerBase.playBack');
+
+  @override
+  double get playBack {
+    _$playBackAtom.reportRead();
+    return super.playBack;
+  }
+
+  @override
+  set playBack(double value) {
+    _$playBackAtom.reportWrite(value, super.playBack, () {
+      super.playBack = value;
+    });
+  }
+
   final _$durationAtom = Atom(name: '_StoryControllerBase.duration');
 
   @override
@@ -53,6 +68,14 @@ mixin _$StoryController on _StoryControllerBase, Store {
     _$durationAtom.reportWrite(value, super.duration, () {
       super.duration = value;
     });
+  }
+
+  final _$setPlaybackAsyncAction =
+      AsyncAction('_StoryControllerBase.setPlayback');
+
+  @override
+  Future setPlayback(AudioPlayer players) {
+    return _$setPlaybackAsyncAction.run(() => super.setPlayback(players));
   }
 
   final _$getPositionAsyncAction =
@@ -91,6 +114,7 @@ mixin _$StoryController on _StoryControllerBase, Store {
     return '''
 positionSlider: ${positionSlider},
 isPaused: ${isPaused},
+playBack: ${playBack},
 duration: ${duration}
     ''';
   }

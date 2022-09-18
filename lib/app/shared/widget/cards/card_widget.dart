@@ -21,16 +21,8 @@ class CardWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Expanded(
-          //   child: AspectRatio(
-          //     aspectRatio: 1.5,
-          //     child: Image.asset(
-          //       'assets/img/$icon',
-          //       fit: BoxFit.cover,
-          //     ),
-          //   ),
-          // ),
           Expanded(
               child: Image.asset(
             'assets/img/$icon',
@@ -42,6 +34,7 @@ class CardWidget extends StatelessWidget {
           Text(
             title,
             style: TextStyles.titleCard,
+            textAlign: TextAlign.center,
           ),
           SizedBox(
             height: 2.h,
@@ -49,6 +42,7 @@ class CardWidget extends StatelessWidget {
           Text(
             subTitle,
             style: TextStyles.subTitleCard,
+            textAlign: TextAlign.center,
           ),
         ],
       ),
