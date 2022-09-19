@@ -2,6 +2,22 @@
   {
     "allData": [
       {
+        "topic": "Exemplo",
+        "infos": [
+          {
+            "title": "Card de exemplo",
+            "sub_title": "Só um exemplo",
+            "icon": "teamo.jpeg",
+            "information": {
+              "text": "É meramente um exemplo,\n não se preocupe\n\nUma linha a mais\n\nClica no botão de som,\n por favor\n\nViiiidaaaa",
+              "img": ["teamo.jpeg"],
+              "voice": "inicial.mp3"
+            }
+          }
+        
+        ]
+      },
+      {
         "topic": "Abril",
         "infos": [
           {
@@ -19,8 +35,8 @@
             "sub_title": "10 de Abril",
             "icon": "eureka.png",
             "information": {
-              "text": "blabla",
-              "img": [""],
+              "text": "Não me conformo com a ideia de com um simples nome as pessoas conseguem te encontrar e saber\n>>>ABSOLUTAMENTE TUDO<<<\nsobre você.\n\nAcordei no outro dia tipo um zombiee da vida e lá estava uma mensagem sua\n\n“Você não pode fazer isso comigo”\n\nNa sua arte de conquistar pessoas, você definitivamente conseguiu me conquistar\n\nMesmo que eu não soubesse ainda\n\ne é sobre isso!",
+              "img": ["eureka.jpeg"],
               "voice": null
             }
           }
@@ -34,7 +50,7 @@
             "sub_title": "28 de Maio",
             "icon": "afrodisiacos1_icon.png",
             "information": {
-              "text": "O dia começou um desastre total\nVocê nem queria sair da cama, absurdo!\n\nDurante a tarde eu te fiz escolher um lugar para ir, você inclusive tentou comer um risoto de rúcula em um restaurante e obviamente não era igual o meu\n\nDepois conhecemos um lugar chamado Centro Cultural Recoleta e tinha uma fucking batalha de rap, simplesmente incrivel né???\n\nFoi hoje que comecei esse app e você ainda me ajudou",
+              "text": "Festa universitária é uma coisa linda né?\n\nMuitas bocas, bebidas e tudo que a gente sabe que tem em festa\n\nEssa em especial eu quase não fui, andava de um lado para o outro procurando seila quem como sempre, e ai finalmente você estava ali\n\nA gente ficou ~bem rápido~ e [nome censurado] pediu um beijo também, porém eu queria MUITO comprar uma coisa antes\n\nQuando eu volto fico esperando [nome censurado] acabar de beijar toda roda para chegar a minha vez\n\nFico com muita vergonha toda vez que lembro desse momento skskks",
               "img": ["afrodisiacos.jpg"],
               "voice": null
             }
@@ -49,8 +65,8 @@
             "sub_title": "9 de Agosto",
             "icon": "risoto_icon.png",
             "information": {
-              "text": "O dia começou um desastre total\nVocê nem queria sair da cama, absurdo!\n\nDurante a tarde eu te fiz escolher um lugar para ir, você inclusive tentou comer um risoto de rúcula em um restaurante e obviamente não era igual o meu\n\nDepois conhecemos um lugar chamado Centro Cultural Recoleta e tinha uma fucking batalha de rap, simplesmente incrivel né???\n\nFoi hoje que comecei esse app e você ainda me ajudou",
-              "img": ["afrodisiacos2.jpg"],
+              "text": "Cara você tem noção que eu aprendi a fazer risoto sendo que eu não tenho a menor ideia nem de como se corta uma cebola?\n\nEu acho que se eu tivesse pensado mais um pouquinho eu não iria nesse role\n\nMas eu fui e meu deus ainda bem que eu fui\n\nNão fui marmita de casal [cara triste] e comemos o risoto frio, porém eu curti bastante o role e minha amiga saiu com cara de E-grilo\n\nSuper faria de novo!",
+              "img": null,
               "voice": null
             }
           },
@@ -96,7 +112,7 @@
             "sub_title": "6 de Setembro",
             "icon": "edward_cullen_icon.png",
             "information": {
-              "text": "O dia começou um desastre total\nVocê nem queria sair da cama, absurdo!\n\nDurante a tarde eu te fiz escolher um lugar para ir, você inclusive tentou comer um risoto de rúcula em um restaurante e obviamente não era igual o meu\n\nDepois conhecemos um lugar chamado Centro Cultural Recoleta e tinha uma fucking batalha de rap, simplesmente incrivel né???\n\nFoi hoje que comecei esse app e você ainda me ajudou",
+              "text": "“Me sinto namorando alguém de crepusculo”\n\n~Namorando~\n\nFoi ai também que eu descobri que você gosta de alho, caras... que vampiro nesse mundo gosta de alho???\n\nPorém essa parte explica tbm a ideia de parecer uma pessoa jovem mas ser uma idosa\n\nQueria tanto usar 300 emojis aqui aff",
               "img": ["edward_cullen.png"],
               "voice": null
             }
