@@ -1,0 +1,32 @@
+[
+  {
+    "tickets": [
+      {
+        "title": "Vale-date",
+        "sub_title": "Te permite escolher um date qualquer",
+        "value": 4
+      },
+      {
+        "title": "Vale-filme",
+        "sub_title": "Te permite escolher um filminho para gente assistir",
+        "value": 3
+      },
+      {
+        "title": "Vale-joguinhos",
+        "sub_title": "Te permite escolher um joguinho",
+        "value": 6
+      },
+      {
+        "title": "Vale-2h-livre",
+        "sub_title": "Te permite 2h de folga",
+        "value": 6
+      },
+      {
+        "title": "Vale-tudo",
+        "sub_title": "Te permite escolher quase qualquer coisa",
+        "value": 2
+      }
+  
+    ]
+  }
+]

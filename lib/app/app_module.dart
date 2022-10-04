@@ -7,6 +7,7 @@ import 'modules/home/home_controller.dart';
 import 'modules/home/home_page.dart';
 import 'modules/splash/splash_page.dart';
 import 'modules/story/story_page.dart';
+import 'modules/ticket/ticket_controller.dart';
 import 'modules/warning/warning_page.dart';
 
 class AppModule extends Module {
@@ -15,6 +16,7 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => AppController()),
     Bind.lazySingleton((i) => HomeController()),
     Bind.lazySingleton((i) => StoryController()),
+    Bind.lazySingleton((i) => TicketController()),
   ];
 
   @override

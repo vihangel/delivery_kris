@@ -9,6 +9,7 @@ import '../../shared/resources/text_style.dart';
 import '../../shared/widget/cards/card_widget.dart';
 import '../menu/menu_page.dart';
 import '../story/story_page.dart';
+import '../ticket/ticker_page.dart';
 import 'home_controller.dart';
 
 final controller = Modular.get<HomeController>();
@@ -63,7 +64,17 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               Modular.to.push(
                 MaterialPageRoute(
-                  builder: (context) => MenuPage(),
+                  builder: (context) => const TicketPage(),
+                ),
+              );
+            },
+            icon: SvgPicture.asset('assets/img/ticket.svg'),
+          ),
+          IconButton(
+            onPressed: () {
+              Modular.to.push(
+                MaterialPageRoute(
+                  builder: (context) => const MenuPage(),
                 ),
               );
             },

@@ -50,6 +50,7 @@ class _StoryPageState extends State<StoryPage> {
     return Observer(builder: (context) {
       players.onDurationChanged.listen((Duration duration) {
         controller.duration = duration;
+        controller.isPaused = false;
       });
       return Scaffold(
         appBar: AppBar(
@@ -167,8 +168,6 @@ class _StoryPageState extends State<StoryPage> {
                                 AssetSource(
                                     'audio/${widget.story.information!.voice}'),
                               );
-
-                              controller.isPaused = false;
 
                               print(
                                   'Duration: ${controller.duration?.inSeconds}');
