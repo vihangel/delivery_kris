@@ -1,3 +1,5 @@
+import 'package:delivery_kris/app/data/models/information/information_model.dart';
+import 'package:delivery_kris/app/data/models/story/story_icon_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -8,6 +10,7 @@ import '../../shared/resources/colors.dart';
 import '../../shared/resources/text_style.dart';
 import '../../shared/widget/cards/card_widget.dart';
 import '../menu/menu_page.dart';
+import '../special_card/percentage_card.dart';
 import '../story/story_page.dart';
 import '../ticket/ticker_page.dart';
 import 'home_controller.dart';
@@ -106,6 +109,30 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(
                 height: 20.h,
+              ),
+              SizedBox(
+                height: 100,
+                child: Row(
+                  children: [
+                    CardWidget(
+                      onTap: () async {
+                        Modular.to.push(
+                          MaterialPageRoute(
+                            builder: (context) => PercentageCards(
+                              story: StoryIconModel(InformationModel(),
+                                  title: "Especial",
+                                  icon: "kris.png",
+                                  subTitle: "Porcentagens"),
+                            ),
+                          ),
+                        );
+                      },
+                      icon: 'kris.png',
+                      subTitle: "Porcentagens",
+                      title: "Especial",
+                    ),
+                  ],
+                ),
               ),
               Observer(
                 builder: (context) {
