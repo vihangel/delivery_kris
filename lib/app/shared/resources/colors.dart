@@ -22,10 +22,12 @@ class ColorsApp {
 
   static final ThemeData theme = ThemeData(
     fontFamily: 'Lexend',
+    scaffoldBackgroundColor: black,
     primarySwatch: ColorsApp.primarySwatch,
     canvasColor: Colors.transparent,
     primaryColor: primarySwatch,
     primaryColorLight: primary,
+    backgroundColor: black,
     inputDecorationTheme: const InputDecorationTheme(
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: gray),
