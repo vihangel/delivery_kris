@@ -43,13 +43,12 @@ class TicTacToeWidget extends StatelessWidget {
         ),
         body: Observer(builder: (context) {
           controller.player;
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 50.h),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 30),
-                  child: Row(
+          return SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 50.h),
+              child: Column(
+                children: [
+                  Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       controller.player == 1
@@ -72,37 +71,61 @@ class TicTacToeWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),
-                GridView(
-                  shrinkWrap: true,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3),
-                  children: List.generate(9, (index) {
-                    return InkWell(
-                      onTap: () {
-                        controller.played(index);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(color: ColorsApp.gray)),
-                        child: controller.selected[index] == 1
-                            ? const Icon(
-                                Icons.favorite,
-                                color: Colors.red,
-                                size: 50,
-                              )
-                            : controller.selected[index] == 2
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    child: GridView(
+                      shrinkWrap: true,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3),
+                      children: List.generate(9, (index) {
+                        return InkWell(
+                          onTap: () {
+                            controller.played(index);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(color: ColorsApp.gray)),
+                            child: controller.selected[index] == 1
                                 ? const Icon(
-                                    Icons.add_reaction_rounded,
-                                    color: ColorsApp.primary,
+                                    Icons.favorite,
+                                    color: Colors.red,
                                     size: 50,
                                   )
-                                : Container(),
-                      ),
-                    );
-                  }),
-                ),
-              ],
+                                : controller.selected[index] == 2
+                                    ? const Icon(
+                                        Icons.add_reaction_rounded,
+                                        color: ColorsApp.primary,
+                                        size: 50,
+                                      )
+                                    : Container(),
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
+                  controller.state == "end"
+                      ? InkWell(
+                          onTap: () {
+                            controller.reset();
+                          },
+                          child: Container(
+                            width: double.maxFinite,
+                            padding: EdgeInsets.symmetric(
+                                vertical: 20.h, horizontal: 20.w),
+                            decoration: const BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(100)),
+                                color: ColorsApp.primary),
+                            child: Text("Reiniciar",
+                                textAlign: TextAlign.center,
+                                style: TextStyles.titleCard
+                                    .copyWith(color: ColorsApp.black)),
+                          ),
+                        )
+                      : Container(),
+                ],
+              ),
             ),
           );
         }),
