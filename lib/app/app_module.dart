@@ -1,3 +1,4 @@
+import 'package:delivery_kris/app/modules/special_card/tic_tac_toe.dart/tic_tac_toe_controller.dart';
 import 'package:delivery_kris/app/modules/story/story_controller.dart';
 
 import 'app_controller.dart';
@@ -17,6 +18,7 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => HomeController()),
     Bind.lazySingleton((i) => StoryController()),
     Bind.lazySingleton((i) => TicketController()),
+    Bind.lazySingleton((i) => TicTacToeController()),
   ];
 
   @override
