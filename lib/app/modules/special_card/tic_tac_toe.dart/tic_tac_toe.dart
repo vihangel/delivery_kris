@@ -43,7 +43,7 @@ class TicTacToeWidget extends StatelessWidget {
           ),
         ),
         body: Observer(builder: (context) {
-          controller.player;
+          controller.setPlayer;
           return SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 50.h),
@@ -107,9 +107,7 @@ class TicTacToeWidget extends StatelessWidget {
                   ),
                   controller.state == "end"
                       ? InkWell(
-                          onTap: () {
-                            controller.reset();
-                          },
+                          onTap: controller.reset,
                           child: Container(
                             width: double.maxFinite,
                             padding: EdgeInsets.symmetric(
@@ -125,6 +123,29 @@ class TicTacToeWidget extends StatelessWidget {
                           ),
                         )
                       : Container(),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: InkWell(
+                      onTap: controller.setPlayer,
+                      child: Container(
+                        width: double.maxFinite,
+                        padding: EdgeInsets.symmetric(
+                            vertical: 20.h, horizontal: 20.w),
+                        decoration: const BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(100)),
+                            color: ColorsApp.primary),
+                        child: Text(
+                          controller.pcGamer
+                              ? "Perder ao vivo"
+                              : "Jogar com o computador",
+                          textAlign: TextAlign.center,
+                          style: TextStyles.titleCard
+                              .copyWith(color: ColorsApp.black),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

@@ -12,10 +12,19 @@ abstract class _TicTacToeControllerBase with Store {
   String state = "";
 
   @observable
+  bool pcGamer = true;
+
+  @observable
   String messageWinner = "";
 
   @observable
   List<int> selected = ObservableList.of([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+
+  @action
+  setPlayer() {
+    reset();
+    return pcGamer = !pcGamer;
+  }
 
   @action
   played(index) async {
@@ -24,7 +33,7 @@ abstract class _TicTacToeControllerBase with Store {
       player == 1 ? player = 4 : player = 1;
     }
     !selected.contains(0) ? state = "end" : null;
-    pcPlayer();
+    pcGamer ? pcPlayer() : null;
     validate();
   }
 
@@ -91,11 +100,6 @@ abstract class _TicTacToeControllerBase with Store {
 
   @action
   pcPlayer() {
-    //jogadas aleatorias
-    // if (selected[0] == 1) {
-    //   selected[0] = player;
-    //   player == 1 ? player = 4 : player = 1;
-    // }
     if (!selected.contains(4)) {
       if (selected[0] == 1 ||
           selected[2] == 1 ||
@@ -106,12 +110,9 @@ abstract class _TicTacToeControllerBase with Store {
       }
     }
     playRow();
-
     playColumn();
-
     playMiddle();
     playRandom();
-
     !selected.contains(0) ? state = "end" : null;
     validate();
   }
@@ -157,8 +158,8 @@ abstract class _TicTacToeControllerBase with Store {
           if (flag > 1) {
             print("Coluna fechada");
             print((j + 3 * i));
-            if (selected[(j + 3 * i)] == 0) {
-              selected[(j + 3 * i)] = 4;
+            if (selected[(j + 3 * 0)] == 0) {
+              selected[(j + 3 * 0)] = 4;
             } else if (selected[(j + 3 * 1)] == 0) {
               selected[(j + 3 * 1)] = 4;
             } else if (selected[(j + 3 * 2)] == 0) {

@@ -39,6 +39,21 @@ mixin _$TicTacToeController on _TicTacToeControllerBase, Store {
     });
   }
 
+  final _$pcGamerAtom = Atom(name: '_TicTacToeControllerBase.pcGamer');
+
+  @override
+  bool get pcGamer {
+    _$pcGamerAtom.reportRead();
+    return super.pcGamer;
+  }
+
+  @override
+  set pcGamer(bool value) {
+    _$pcGamerAtom.reportWrite(value, super.pcGamer, () {
+      super.pcGamer = value;
+    });
+  }
+
   final _$messageWinnerAtom =
       Atom(name: '_TicTacToeControllerBase.messageWinner');
 
@@ -81,6 +96,17 @@ mixin _$TicTacToeController on _TicTacToeControllerBase, Store {
       ActionController(name: '_TicTacToeControllerBase');
 
   @override
+  dynamic setPlayer() {
+    final _$actionInfo = _$_TicTacToeControllerBaseActionController.startAction(
+        name: '_TicTacToeControllerBase.setPlayer');
+    try {
+      return super.setPlayer();
+    } finally {
+      _$_TicTacToeControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   dynamic reset() {
     final _$actionInfo = _$_TicTacToeControllerBaseActionController.startAction(
         name: '_TicTacToeControllerBase.reset');
@@ -118,6 +144,7 @@ mixin _$TicTacToeController on _TicTacToeControllerBase, Store {
     return '''
 player: ${player},
 state: ${state},
+pcGamer: ${pcGamer},
 messageWinner: ${messageWinner},
 selected: ${selected}
     ''';
