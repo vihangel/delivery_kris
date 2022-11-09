@@ -149,15 +149,12 @@ abstract class _TicTacToeControllerBase with Store {
       for (var j = 0; j < 3; j++) {
         int flag = 0;
         for (var i = 0; i < 3; i++) {
-          print((j + 3 * i));
           if (selected[(j + 3 * i)] == 4) {
             flag -= 1;
           } else if (selected[(j + 3 * i)] == 1) {
             flag += 1;
           }
           if (flag > 1) {
-            print("Coluna fechada");
-            print((j + 3 * i));
             if (selected[(j + 3 * 0)] == 0) {
               selected[(j + 3 * 0)] = 4;
             } else if (selected[(j + 3 * 1)] == 0) {

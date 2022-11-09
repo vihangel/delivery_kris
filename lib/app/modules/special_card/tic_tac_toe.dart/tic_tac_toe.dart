@@ -44,6 +44,13 @@ class TicTacToeWidget extends StatelessWidget {
         ),
         body: Observer(builder: (context) {
           controller.setPlayer;
+          // controller.state == "end"
+          //     ? showDialog(
+          //         context: context,
+          //         builder: ((context) {
+          //           return Text(controller.messageWinner);
+          //         }))
+          //     : null;
           return SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 50.h),
