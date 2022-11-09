@@ -93,7 +93,7 @@ class TicTacToeWidget extends StatelessWidget {
                                     color: Colors.red,
                                     size: 50,
                                   )
-                                : controller.selected[index] == 2
+                                : controller.selected[index] == 4
                                     ? const Icon(
                                         Icons.add_reaction_rounded,
                                         color: ColorsApp.primary,
