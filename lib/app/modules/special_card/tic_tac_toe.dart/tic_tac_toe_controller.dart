@@ -24,6 +24,7 @@ abstract class _TicTacToeControllerBase with Store {
       player == 1 ? player = 2 : player = 1;
     }
     !selected.contains(0) ? state = "end" : null;
+    pcPlayer();
     validate();
   }
 
@@ -32,6 +33,7 @@ abstract class _TicTacToeControllerBase with Store {
     player = 1;
     state = "";
     selected = ObservableList.of([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    messageWinner = "";
   }
 
   @action
@@ -79,9 +81,10 @@ abstract class _TicTacToeControllerBase with Store {
     if (state == "end") {
       if (player == 1) {
         player = 2;
+        messageWinner = "Na próxima eu deixo você ganhar!";
       } else {
         player = 1;
-        messageWinner = "Você ganhou do meu coração!";
+        messageWinner = "Na arte da conquista, você ganhou do meu coração! 🤪";
       }
     }
   }
@@ -89,43 +92,71 @@ abstract class _TicTacToeControllerBase with Store {
   @action
   pcPlayer() {
     //jogadas aleatorias
-    if (selected[0] == 0) {
-      selected[0] = player;
-      player == 1 ? player = 2 : player = 1;
+    // if (selected[0] == 1) {
+    //   selected[0] = player;
+    //   player == 1 ? player = 2 : player = 1;
+    // }
+    if (!selected.contains(2)) {
+      if (selected[0] == 1 ||
+          selected[2] == 1 ||
+          selected[6] == 1 ||
+          selected[8] == 1) {
+        selected[4] = player;
+        player == 1 ? player = 2 : player = 1;
+      }
     }
-    if (selected[1] == 0) {
-      selected[1] = player;
-      player == 1 ? player = 2 : player = 1;
-    }
-    if (selected[2] == 0) {
-      selected[2] = player;
-      player == 1 ? player = 2 : player = 1;
-    }
-    if (selected[3] == 0) {
-      selected[3] = player;
-      player == 1 ? player = 2 : player = 1;
-    }
-    if (selected[4] == 0) {
-      selected[4] = player;
-      player == 1 ? player = 2 : player = 1;
-    }
-    if (selected[5] == 0) {
-      selected[5] = player;
-      player == 1 ? player = 2 : player = 1;
-    }
-    if (selected[6] == 0) {
-      selected[6] = player;
-      player == 1 ? player = 2 : player = 1;
-    }
-    if (selected[7] == 0) {
-      selected[7] = player;
-      player == 1 ? player = 2 : player = 1;
-    }
-    if (selected[8] == 0) {
-      selected[8] = player;
-      player == 1 ? player = 2 : player = 1;
-    }
+    playRow();
+    playColumn();
     !selected.contains(0) ? state = "end" : null;
     validate();
+  }
+
+  playRow() {
+    if (player == 2) {
+      for (var j = 0; j < 3; j++) {
+        int flag = 0;
+        for (var i = 0; i < 3; i++) {
+          if (selected[(i + 3 * j)] == 1) {
+            flag += 1;
+          }
+          if (flag > 1) {
+            print("Linha fechada");
+            if (selected[(3 * j)] == 0) {
+              selected[(3 * j)] = 2;
+            } else if (selected[(3 * j) + 1] == 0) {
+              selected[(3 * j) + 1] = 2;
+            } else if (selected[(3 * j) + 2] == 0) {
+              selected[(3 * j) + 2] = 2;
+            }
+
+            player == 1 ? player = 2 : player = 1;
+          }
+        }
+      }
+    }
+  }
+
+  playColumn() {
+    if (player == 2) {
+      for (var j = 0; j < 3; j++) {
+        int flag = 0;
+        for (var i = 0; i < 3; i++) {
+          if (selected[(j + 3 * i)] == 1) {
+            flag += 1;
+          }
+          if (flag > 1) {
+            print("Coluna fechada");
+            if (selected[(3 * i)] == 0) {
+              selected[(3 * i)] = 2;
+            } else if (selected[(3 * i) + 1] == 0) {
+              selected[(3 * i) + 1] = 2;
+            } else if (selected[(3 * i) + 2] == 0) {
+              selected[(3 * i) + 2] = 2;
+            }
+            player == 1 ? player = 2 : player = 1;
+          }
+        }
+      }
+    }
   }
 }

@@ -36,6 +36,7 @@ class TicTacToeWidget extends StatelessWidget {
           elevation: 0,
           leading: IconButton(
             onPressed: () {
+              controller.reset();
               Modular.to.pop();
             },
             icon: const Icon(Icons.close),
