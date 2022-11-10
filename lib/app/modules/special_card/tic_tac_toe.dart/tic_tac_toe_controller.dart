@@ -110,8 +110,11 @@ abstract class _TicTacToeControllerBase with Store {
       }
     }
     playRow();
+
     playColumn();
+
     playMiddle();
+
     playRandom();
     !selected.contains(0) ? state = "end" : null;
     validate();
@@ -123,18 +126,19 @@ abstract class _TicTacToeControllerBase with Store {
         int flag = 0;
         for (var i = 0; i < 3; i++) {
           if (selected[(i + 3 * j)] == 4) {
-            flag -= 1;
+            flag -= 4;
           } else if (selected[(i + 3 * j)] == 1) {
             flag += 1;
           }
-          if (flag > 1) {
+
+          if (flag > 1 && i > 2) {
             print("Linha fechada");
-            if (selected[(3 * j)] == 0) {
-              selected[(3 * j)] = 4;
-            } else if (selected[(3 * j) + 1] == 0) {
-              selected[(3 * j) + 1] = 4;
-            } else if (selected[(3 * j) + 2] == 0) {
-              selected[(3 * j) + 2] = 4;
+            if (selected[(0 + 3 * i)] == 0) {
+              selected[(0 + 3 * i)] = 4;
+            } else if (selected[(1 + 3 * j)] == 0) {
+              selected[(1 + 3 * j)] = 4;
+            } else if (selected[(2 + 3 * j)] == 0) {
+              selected[(2 + 3 * j)] = 4;
             }
 
             player == 1 ? player = 4 : player = 1;
@@ -150,11 +154,11 @@ abstract class _TicTacToeControllerBase with Store {
         int flag = 0;
         for (var i = 0; i < 3; i++) {
           if (selected[(j + 3 * i)] == 4) {
-            flag -= 1;
+            flag -= 4;
           } else if (selected[(j + 3 * i)] == 1) {
             flag += 1;
           }
-          if (flag > 1) {
+          if (flag > 1 && i > 2) {
             if (selected[(j + 3 * 0)] == 0) {
               selected[(j + 3 * 0)] = 4;
             } else if (selected[(j + 3 * 1)] == 0) {

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "823874873915",
+    "project_id": "delivery-kris",
+    "storage_bucket": "delivery-kris.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823874873915:android:b966e67edb6bd45ee88a1e",
+        "android_client_info": {
+          "package_name": "com.example.delivery_kris"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823874873915-99s77ilumgo0oupqcu804fvthm1k2h8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBftBGt28_Sy9Qa9zKbyJHbkNKfGDXs9Vc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823874873915-99s77ilumgo0oupqcu804fvthm1k2h8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
