@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "delivery-kris"
-  }
+    "default": "delivery-kris",
+    "firestone": "delivery-kris"
+  },
+  "targets": {},
+  "etags": {}
 }

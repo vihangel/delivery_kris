@@ -1,5 +1,6 @@
 import 'package:delivery_kris/app/data/models/information/information_model.dart';
 import 'package:delivery_kris/app/data/models/story/story_icon_model.dart';
+import 'package:delivery_kris/app/data/service/teste_crud.dart';
 import 'package:delivery_kris/app/modules/special_card/tic_tac_toe.dart/tic_tac_toe.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -17,6 +18,7 @@ import '../ticket/ticker_page.dart';
 import 'home_controller.dart';
 
 final controller = Modular.get<HomeController>();
+final service = TesteCrud();
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -95,6 +97,14 @@ class _HomePageState extends State<HomePage> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
+              TextButton(
+                  child: const Text('Teste db collection ticket'),
+                  onPressed: () {
+                    service.testeCrud(
+                        name: "teste maroto",
+                        value: 5,
+                        subTitle: "Essa é uma descrição marota");
+                  }),
               SizedBox(
                 height: 20.h,
               ),
