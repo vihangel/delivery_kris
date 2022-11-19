@@ -11,9 +11,8 @@ jobs:
         # Install Flutter command
         - uses: subosito/flutter-action@v1
           with:
-            channel: 'dev'
+            channel: 'stable'
             flutter-version: '3.3.8'
-
         # Build Website
         # If sdk version problem use flutter upgrade before pub get
         - name: Build Website
