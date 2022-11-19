@@ -24,7 +24,11 @@ class ColorsApp {
     fontFamily: 'Lexend',
     scaffoldBackgroundColor: black,
     primarySwatch: ColorsApp.primarySwatch,
-    canvasColor: Colors.transparent,
+    pageTransitionsTheme: const PageTransitionsTheme(builders: {
+      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+    }),
+    canvasColor: black,
     primaryColor: primarySwatch,
     primaryColorLight: primary,
     backgroundColor: black,

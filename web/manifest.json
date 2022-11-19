@@ -3,9 +3,9 @@
     "short_name": "delivery_kris",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#242426",
+    "theme_color": "#242426",
+    "description": "Um app para boiolagens",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
