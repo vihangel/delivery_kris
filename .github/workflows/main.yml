@@ -14,10 +14,10 @@ jobs:
             channel: 'dev'
 
         # Build Website
+        # If sdk version problem use flutter upgrade before pub get
         - name: Build Website
           run: |
             flutter config --enable-web
-            flutter upgrade
             flutter pub get
             flutter build web --release
           working-directory: ./
