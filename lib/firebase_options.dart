@@ -45,12 +45,13 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyB0X5uZJF1HKC6bPURWADplFb9YIk_wjAc',
-    appId: '1:823874873915:web:5c5dc67b7f261082e88a1e',
+    appId: '1:823874873915:web:92269ca894c05641e88a1e',
     messagingSenderId: '823874873915',
     projectId: 'delivery-kris',
     authDomain: 'delivery-kris.firebaseapp.com',
+    databaseURL: 'https://delivery-kris-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'delivery-kris.appspot.com',
-    measurementId: 'G-TFQ0S3C39L',
+    measurementId: 'G-HS3H1SVQRQ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -58,6 +59,7 @@ class DefaultFirebaseOptions {
     appId: '1:823874873915:android:b966e67edb6bd45ee88a1e',
     messagingSenderId: '823874873915',
     projectId: 'delivery-kris',
+    databaseURL: 'https://delivery-kris-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'delivery-kris.appspot.com',
   );
 
@@ -66,6 +68,7 @@ class DefaultFirebaseOptions {
     appId: '1:823874873915:ios:c54f1e98b0bedda2e88a1e',
     messagingSenderId: '823874873915',
     projectId: 'delivery-kris',
+    databaseURL: 'https://delivery-kris-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'delivery-kris.appspot.com',
     iosClientId: '823874873915-dstqlhica0nijuubvfu6opf10dr7p208.apps.googleusercontent.com',
     iosBundleId: 'com.example.deliveryKris',
@@ -76,6 +79,7 @@ class DefaultFirebaseOptions {
     appId: '1:823874873915:ios:c54f1e98b0bedda2e88a1e',
     messagingSenderId: '823874873915',
     projectId: 'delivery-kris',
+    databaseURL: 'https://delivery-kris-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'delivery-kris.appspot.com',
     iosClientId: '823874873915-dstqlhica0nijuubvfu6opf10dr7p208.apps.googleusercontent.com',
     iosBundleId: 'com.example.deliveryKris',

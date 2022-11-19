@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "823874873915",
+    "firebase_url": "https://delivery-kris-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "delivery-kris",
     "storage_bucket": "delivery-kris.appspot.com"
   },
@@ -29,6 +30,13 @@
             {
               "client_id": "823874873915-99s77ilumgo0oupqcu804fvthm1k2h8n.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "823874873915-dstqlhica0nijuubvfu6opf10dr7p208.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.deliveryKris"
+              }
             }
           ]
         }
