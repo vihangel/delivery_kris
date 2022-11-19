@@ -5,7 +5,7 @@ class ColorsApp {
   static const Color white = Color(0xFFF1F1F1);
   static const Color gray = Color(0xFFADADAD);
   // static const Color gray2 = Color(0xFF8C9199);
-  static const Color black = Color(0xFF242426);
+  static const Color black = Color.fromARGB(243, 36, 36, 38);
 
   static const MaterialColor primarySwatch = MaterialColor(0XFFE6D218, {
     50: Color(0XFFE6D218),
@@ -22,12 +22,14 @@ class ColorsApp {
 
   static final ThemeData theme = ThemeData(
     fontFamily: 'Lexend',
+    visualDensity: VisualDensity.adaptivePlatformDensity,
     scaffoldBackgroundColor: black,
     primarySwatch: ColorsApp.primarySwatch,
     pageTransitionsTheme: const PageTransitionsTheme(builders: {
       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
       TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
     }),
+    useMaterial3: true,
     canvasColor: black,
     primaryColor: primarySwatch,
     primaryColorLight: primary,

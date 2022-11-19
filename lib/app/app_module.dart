@@ -7,7 +7,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'modules/home/home_controller.dart';
 import 'modules/home/home_page.dart';
 import 'modules/splash/splash_page.dart';
-import 'modules/story/story_page.dart';
 import 'modules/ticket/ticket_controller.dart';
 import 'modules/warning/warning_page.dart';
 
@@ -24,13 +23,14 @@ class AppModule extends Module {
   @override
   final List<ModularRoute> routes = [
     ChildRoute('/',
-        transition: TransitionType.leftToRightWithFade,
+        // transition: TransitionType.leftToRightWithFade,
+
         child: (_, args) => const SplashPage()),
     ChildRoute('/warning',
-        transition: TransitionType.rightToLeft,
+        // transition: TransitionType.rightToLeft,
         child: (_, args) => const WarningPage()),
     ChildRoute('/home',
-        transition: TransitionType.rightToLeft,
+        // transition: TransitionType.rightToLeft,
         child: (_, args) => const HomePage()),
   ];
 }

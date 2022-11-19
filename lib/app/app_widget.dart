@@ -20,9 +20,12 @@ class AppWidget extends StatelessWidget {
           child = botToastBuilder(context, child);
           return child;
         },
+        color: ColorsApp.black,
         debugShowCheckedModeBanner: false,
         title: 'Delivery Kris',
         theme: ColorsApp.theme,
+        darkTheme: ColorsApp.theme,
+        themeMode: ThemeMode.dark,
         routeInformationParser: Modular.routeInformationParser,
         routerDelegate: Modular.routerDelegate,
       ),

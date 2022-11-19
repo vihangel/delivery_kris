@@ -1,3 +1,4 @@
+import 'package:delivery_kris/app/shared/resources/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -22,10 +23,13 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SvgPicture.asset(
-        ImagesApp.logoWithText,
-        width: 220.w,
+    return Scaffold(
+      backgroundColor: ColorsApp.black,
+      body: Center(
+        child: SvgPicture.asset(
+          ImagesApp.logoWithText,
+          width: 220.w,
+        ),
       ),
     );
   }
