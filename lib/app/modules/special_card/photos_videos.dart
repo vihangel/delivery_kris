@@ -30,12 +30,12 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
       ..initialize().then((_) {
         setState(() {});
       });
-    _controller2 = .network(
+    _controller2 = VideoPlayerController.network(
         "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we2.mp4?raw=true")
       ..initialize().then((_) {
         setState(() {});
       });
-    _controller3 = .network(
+    _controller3 = VideoPlayerController.network(
         "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we3.mp4?raw=true")
       ..initialize().then((_) {
         setState(() {});
@@ -153,7 +153,7 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
                 ListView.builder(
                   shrinkWrap: true,
                   physics: const ClampingScrollPhysics(),
-                  itemCount: 10,
+                  itemCount: 17,
                   itemBuilder: (BuildContext context, int index) {
                     return Image.asset(
                       "assets/img/photos/be${index + 1}.jpg",
