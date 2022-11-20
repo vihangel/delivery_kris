@@ -1,10 +1,13 @@
+import 'dart:html';
+import 'package:universal_html/html.dart' as html;
 import 'package:delivery_kris/app/data/models/story/story_icon_model.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:video_js/video_js.dart';
 import 'package:video_player/video_player.dart';
-
 import '../../shared/resources/colors.dart';
 import '../../shared/resources/text_style.dart';
 import '../../shared/widget/cards/card_widget.dart';
@@ -18,22 +21,36 @@ class PhotosEspecial extends StatefulWidget {
 }
 
 class _PhotosEspecialState extends State<PhotosEspecial> {
-  late VideoPlayerController _controller;
-  late VideoPlayerController _controller2;
-  late VideoPlayerController _controller3;
+  late VideoJsController _controller;
+  late VideoJsController _controller2;
+  late VideoJsController _controller3;
 
   @override
   void initState() {
     super.initState();
-    _controller = _controller = VideoPlayerController.network(
-        "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we1.mp4?raw=true")
-      ..initialize().then((_) {
-        _controller.play();
-        _controller.pause();
-        _controller.setLooping(true);
-        setState(() {});
-      });
-    _controller2 = VideoPlayerController.network(
+    _controller = _controller = VideoJsController("videoId",
+        videoJsOptions: VideoJsOptions(
+            controls: true,
+            loop: false,
+            muted: false,
+            poster:
+                'https://file-examples-com.github.io/uploads/2017/10/file_example_JPG_100kB.jpg',
+            aspectRatio: '16:9',
+            fluid: false,
+            language: 'en',
+            liveui: false,
+            notSupportedMessage: 'this movie type not supported',
+            playbackRates: [1, 2, 3],
+            preferFullWindow: false,
+            responsive: false,
+            sources: [
+              Source(
+                  "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we1.mp4?raw=true",
+                  "video/mp4")
+            ],
+            suppressNotSupportedError: false));
+
+    _controller2 = VideoJsController.network(
         "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we2.mp4?raw=true")
       ..initialize().then((_) {
         _controller2.play();
@@ -41,7 +58,7 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
         _controller2.setLooping(true);
         setState(() {});
       });
-    _controller3 = VideoPlayerController.network(
+    _controller3 = VideoJsController.network(
         "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we3.mp4?raw=true")
       ..initialize().then((_) {
         _controller3.play();
@@ -293,11 +310,7 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
           alignment: Alignment.bottomCenter,
           child: InkWell(
             onTap: () {
-              setState(() {
-                controller.value.isPlaying
-                    ? controller.pause()
-                    : controller.play();
-              });
+              playVideo(controller.url, controller: controller);
             },
             child: Icon(
               controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
@@ -307,5 +320,24 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
         ),
       ],
     );
+  }
+
+  void playVideo(String atUrl, {controller}) {
+    if (kIsWeb) {
+      final v = html.window.document.getElementById('videoPlayer');
+      if (v != null) {
+        v.setInnerHtml('<source type="video/mp4" src="$atUrl">',
+            validator: html.NodeValidatorBuilder()
+              ..allowElement('source', attributes: ['src', 'type']));
+        final a = html.window.document.getElementById('triggerVideoPlayer');
+        if (a != null) {
+          a.dispatchEvent(html.MouseEvent('click'));
+        }
+      }
+    } else {
+      setState(() {
+        controller.value.isPlaying ? controller.pause() : controller.play();
+      });
+    }
   }
 }
