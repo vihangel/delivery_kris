@@ -25,15 +25,18 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset("assets/img/photos/we1.mp4")
+    _controller = _controller = VideoPlayerController.network(
+        "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we1.mp4?raw=true")
       ..initialize().then((_) {
         setState(() {});
       });
-    _controller2 = VideoPlayerController.asset("assets/img/photos/we2.mp4")
+    _controller2 = .network(
+        "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we2.mp4?raw=true")
       ..initialize().then((_) {
         setState(() {});
       });
-    _controller3 = VideoPlayerController.asset("assets/img/photos/we3.mp4")
+    _controller3 = .network(
+        "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we3.mp4?raw=true")
       ..initialize().then((_) {
         setState(() {});
       });
