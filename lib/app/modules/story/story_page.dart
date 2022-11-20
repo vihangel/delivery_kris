@@ -109,7 +109,10 @@ class _StoryPageState extends State<StoryPage> {
                                     players.pause();
                                     controller.isPaused = true;
                                   },
-                                  icon: const Icon(Icons.pause),
+                                  icon: const Icon(
+                                    Icons.pause,
+                                    color: ColorsApp.white,
+                                  ),
                                 )
                               : IconButton(
                                   onPressed: () async {
@@ -117,7 +120,8 @@ class _StoryPageState extends State<StoryPage> {
 
                                     controller.isPaused = false;
                                   },
-                                  icon: const Icon(Icons.play_arrow_rounded)),
+                                  icon: const Icon(Icons.play_arrow_rounded,
+                                      color: ColorsApp.white)),
                           TextButton(
                             onPressed: () {
                               controller.setPlayback(players);
