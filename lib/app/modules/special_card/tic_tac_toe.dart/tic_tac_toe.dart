@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobx/mobx.dart';
 
 final controller = Modular.get<TicTacToeController>();
 
@@ -18,7 +17,6 @@ class TicTacToeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScrollController scrollController = ScrollController();
     final size = MediaQuery.of(context).size;
     return Observer(builder: (context) {
       return Scaffold(
@@ -39,7 +37,10 @@ class TicTacToeWidget extends StatelessWidget {
               controller.reset();
               Modular.to.pop();
             },
-            icon: const Icon(Icons.close),
+            icon: const Icon(
+              Icons.close,
+              color: ColorsApp.white,
+            ),
           ),
         ),
         body: Observer(builder: (context) {
@@ -161,10 +162,4 @@ class TicTacToeWidget extends StatelessWidget {
       );
     });
   }
-}
-
-tictacTile() {
-  return Column(
-    children: [],
-  );
 }

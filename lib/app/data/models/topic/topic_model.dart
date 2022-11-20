@@ -1,4 +1,3 @@
-import 'package:delivery_kris/app/data/models/information/information_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../story/story_icon_model.dart';

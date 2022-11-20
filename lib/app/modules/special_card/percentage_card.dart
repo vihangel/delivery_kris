@@ -37,7 +37,10 @@ class PercentageCards extends StatelessWidget {
             onPressed: () {
               Modular.to.pop();
             },
-            icon: const Icon(Icons.close),
+            icon: const Icon(
+              Icons.close,
+              color: ColorsApp.white,
+            ),
           ),
         ),
         body: Padding(

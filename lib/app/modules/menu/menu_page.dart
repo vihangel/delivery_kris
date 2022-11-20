@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'dart:js' as js;
 import '../../shared/resources/colors.dart';
 import '../../shared/resources/text_style.dart';
 
@@ -29,9 +29,11 @@ class MenuPage extends StatelessWidget {
           onPressed: () {
             Modular.to.pop();
           },
-          icon: const Icon(Icons.close),
+          icon: const Icon(
+            Icons.close,
+            color: ColorsApp.white,
+          ),
         ),
-        actions: [],
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -97,10 +99,11 @@ class MenuPage extends StatelessWidget {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             shape: const CircleBorder(),
+                            backgroundColor: Colors.transparent,
                           ),
-                          onPressed: () async {
-                            // await launchUrl(Uri(
-                            //     path: 'https://www.instagram.com/kr.sanches/'));
+                          onPressed: () {
+                            js.context.callMethod('open',
+                                ["https://www.instagram.com/kr.sanches/"]);
                           },
                           child: const Icon(
                             FontAwesomeIcons.instagram,
@@ -122,11 +125,11 @@ class MenuPage extends StatelessWidget {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             shape: const CircleBorder(),
+                            backgroundColor: Colors.transparent,
                           ),
-                          onPressed: () async {
-                            // await launchUrl(Uri(
-                            //     path:
-                            //         'https://github.com/vihangel/delivery_kris'));
+                          onPressed: () {
+                            js.context.callMethod('open',
+                                ["https://github.com/vihangel/delivery_kris"]);
                           },
                           child: const Icon(
                             FontAwesomeIcons.github,
@@ -147,11 +150,12 @@ class MenuPage extends StatelessWidget {
                         height: 50.h,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.transparent,
                             shape: const CircleBorder(),
                           ),
-                          onPressed: () async {
-                            // await launchUrl(Uri(
-                            //     path: 'https://www.instagram.com/vih.angel/'));
+                          onPressed: () {
+                            js.context.callMethod('open',
+                                ["https://www.instagram.com/vih.angel/"]);
                           },
                           child: const Icon(
                             FontAwesomeIcons.instagram,
@@ -171,12 +175,6 @@ class MenuPage extends StatelessWidget {
               SizedBox(
                 height: 40.h,
               ),
-              // Image.asset("assets/images/icon_1.png"),
-              // Text(
-              //   "A ideia é eu conseguir antes do aniversário dela acabar isso aqui e ir ver ela, então se você apoia a boiolice ajude com qualquer valor ou compartilhe hehe",
-              //   style: TextStyles.regular,
-              //   textAlign: TextAlign.center,
-              // ),
             ],
           ),
         ),

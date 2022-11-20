@@ -23,6 +23,7 @@ class LoginButton extends StatelessWidget {
                     RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0.r),
                 ))),
+            onPressed: onPressed,
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 0),
               child: Text(title,
@@ -32,7 +33,6 @@ class LoginButton extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   )),
             ),
-            onPressed: onPressed,
           ),
         ),
       ],

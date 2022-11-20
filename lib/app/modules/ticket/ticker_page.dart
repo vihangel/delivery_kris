@@ -44,9 +44,11 @@ class _TicketPageState extends State<TicketPage> {
             onPressed: () {
               Modular.to.pop();
             },
-            icon: const Icon(Icons.close),
+            icon: const Icon(
+              Icons.close,
+              color: ColorsApp.white,
+            ),
           ),
-          actions: [],
         ),
         body: controller.loading
             ? const Center(

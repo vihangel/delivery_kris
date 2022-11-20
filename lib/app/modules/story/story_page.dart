@@ -66,7 +66,10 @@ class _StoryPageState extends State<StoryPage> {
             onPressed: () {
               Modular.to.pop();
             },
-            icon: const Icon(Icons.close),
+            icon: const Icon(
+              Icons.close,
+              color: ColorsApp.white,
+            ),
           ),
           actions: [
             Observer(builder: (context) {

@@ -34,6 +34,17 @@ class ColorsApp {
     primaryColor: primarySwatch,
     primaryColorLight: primary,
     backgroundColor: black,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: black,
+      iconTheme: IconThemeData(color: white),
+      elevation: 0,
+      centerTitle: true,
+      titleTextStyle: TextStyle(
+        color: white,
+        fontSize: 20,
+        fontWeight: FontWeight.w700,
+      ),
+    ),
     inputDecorationTheme: const InputDecorationTheme(
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: gray),
