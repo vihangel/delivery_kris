@@ -23,21 +23,20 @@ class CardWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
+          SizedBox(
+              width: MediaQuery.of(context).size.width * 0.25,
+              height: MediaQuery.of(context).size.width * 0.25,
               child: Image.asset(
-            'assets/img/$icon',
-            fit: BoxFit.cover,
-          )),
-          SizedBox(
-            height: 2.h,
-          ),
-          Text(
-            title,
-            style: TextStyles.titleCard,
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(
-            height: 2.h,
+                'assets/img/$icon',
+                fit: BoxFit.cover,
+              )),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5.0),
+            child: Text(
+              title,
+              style: TextStyles.titleCard,
+              textAlign: TextAlign.center,
+            ),
           ),
           Text(
             subTitle,

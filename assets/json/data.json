@@ -6,11 +6,11 @@
         "infos": [
           {
             "title": "Card de exemplo",
-            "sub_title": "Só um exemplo",
-            "icon": "teamo.jpeg",
+            "sub_title": "Com considerações importantes",
+            "icon": "teamo.png",
             "information": {
-              "text": "É meramente um exemplo,\n não se preocupe\n\nUma linha a mais\n\nClica no botão de som,\n por favor\n\nViiiidaaaa",
-              "img": ["teamo.jpeg"],
+              "text": "É meramente um exemplo,\n não se preocupe\n\nClica no botão de som,\n por favor\n\nViiiidaaaa\n\n\nAlgumas coisas eu fiz faz um tempo, então emoji por exemplo eu descobri que da sim de usar!🤩\nMeu planejamento para as coisas é péssimo então eu não fiz algumas coisas que eu queria ter feito e eu desisti de algumas também",
+              "img": ["teamo.png"],
               "voice": "inicial.mp3"
             }
           }
@@ -73,19 +73,19 @@
           {
             "title": "Miei a POP",
             "sub_title": "24 de Agosto",
-            "icon": "bingay.jpg",
+            "icon": "bingay.png",
             "information": {
-              "text": "A única coisa que eu tenho a dizer\n\nPerdão kkkk\n\nEu ia pelo menos te dar oi, mas na hora que eu desci do carro e vi o pessoal eu voltei correndo 😳\n\nAinda bem que eu acho que ninguém de dentro me viu, pois ja basta a segurança vendo aquele momento",
-              "img": ["bingay.jpg"],
+              "text": "A única coisa que eu tenho a dizer\n\nPerdão kkkk\n\nEu ia pelo menos te dar oi, mas na hora que eu desci do carro e vi o pessoal eu voltei correndo 😳\n\nAinda bem que eu acho que ninguém de dentro me viu, pois ja basta a segurança vendo aquele momento\n\nSim voltei para correndo para o carro igual um baby",
+              "img": ["bingay.png"],
               "voice": null
             }
           },
           {
             "title": "Noite de Jogos",
             "sub_title": "9 de Agosto",
-            "icon": "risoto_icon.png",
+            "icon": "jogos.png",
             "information": {
-              "text": "Será que podemos cancelar esse dia?\n\nO role era para JOGAR mas jogar forçado obviamente não é uma boa\n\nEsse dia não foi uma boa apenas\n\nPelo menos você ganhou um Tsuru que levou até para Argentina",
+              "text": "Será que podemos cancelar esse dia?\n\nO role era para JOGAR mas jogar forçado obviamente não é uma boa\n\nEsse dia não foi uma boa apenas\n\nPelo menos você ganhou um Tsuru que levou até para Argentina 🤪",
               "img": null,
               "voice": null
             }
@@ -96,9 +96,9 @@
             "sub_title": "27 de Agosto",
             "icon": "afrodisiacos2_icon.png",
             "information": {
-              "text": "O ultimo beijo, pelo menos era para ser\n\nEu não conheço nenhume organizadore da afrodisíacos, porém saiba que eu amo vocês\n\nA duas festas foram tipo um ponto de inicio\n\nA primeira foi o ponto para iniciarmos uma conversa e essa segunda foi um\n\n'Vocês precisam sair de novo!'\n\nFoi bem isso que aconteceu",
+              "text": "O ultimo beijo, pelo menos era para ser\n\nEu não conheço ninguem que organiza a afrodisíacos, porém saiba que eu amo vocês\n\nA duas festas foram tipo um ponto de inicio\n\nA primeira foi o ponto para iniciarmos uma conversa e essa segunda foi um\n\n'Vocês precisam sair de novo!'\n\nFoi bem isso que aconteceu",
               "img": ["afrodisiacos2.jpg"],
-              "voice": ""
+              "voice": null
             }
           }
         ]
@@ -120,7 +120,7 @@
           {
             "title": "Montanha-russa",
             "sub_title": "11 de Setembro",
-            "icon": "montanha_russa_icon.png",
+            "icon": "montanha.png",
             "information": {
               "text": "O dia começou um desastre total\nVocê nem queria sair da cama, absurdo!\n\nDurante a tarde eu te fiz escolher um lugar para ir, você inclusive tentou comer um risoto de rúcula em um restaurante e obviamente não era igual o meu\n\nDepois conhecemos um lugar chamado Centro Cultural Recoleta e tinha uma fucking batalha de rap, simplesmente incrivel né???\n\nFoi hoje que comecei esse app e você ainda me ajudou",
               "img": ["montanha_russa.png"],

@@ -1,10 +1,7 @@
-import 'dart:typed_data';
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:delivery_kris/app/data/models/story/story_icon_model.dart';
 import 'package:delivery_kris/app/modules/story/story_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -145,13 +142,10 @@ class _StoryPageState extends State<StoryPage> {
                 SizedBox(
                   height: 20.h,
                 ),
-                SizedBox(
-                  height: 150.h,
-                  child: CardWidget(
-                    icon: widget.story.icon ?? 'kris.png',
-                    subTitle: widget.story.subTitle ?? '',
-                    title: widget.story.title ?? '',
-                  ),
+                CardWidget(
+                  icon: widget.story.icon ?? 'coringa.png',
+                  subTitle: widget.story.subTitle ?? '',
+                  title: widget.story.title ?? '',
                 ),
                 SizedBox(
                   height: 20.h,

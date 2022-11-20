@@ -1,10 +1,6 @@
-import 'dart:typed_data';
-
-import 'package:audioplayers/audioplayers.dart';
 import 'package:delivery_kris/app/data/models/story/story_icon_model.dart';
 import 'package:delivery_kris/app/modules/story/story_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -56,68 +52,50 @@ class PercentageCards extends StatelessWidget {
                 SizedBox(
                   height: 20.h,
                 ),
-                SizedBox(
-                  height: 150.h,
-                  child: CardWidget(
-                    icon: story.icon ?? 'kris.png',
-                    subTitle: story.subTitle ?? '',
-                    title: story.title ?? '',
-                  ),
+                CardWidget(
+                  icon: story.icon ?? 'kris.png',
+                  subTitle: story.subTitle ?? '',
+                  title: story.title ?? '',
                 ),
                 SizedBox(
                   height: 20.h,
                 ),
+                field(context,
+                    title: 'Fofocas',
+                    percentage: 100,
+                    subtitle:
+                        "Nossa conversa no inicio movimentada 1000% sobre fofocas"),
+                field(context,
+                    title: 'Filmes/Series',
+                    percentage: 100,
+                    subtitle:
+                        "Não sei como, mas damos muito certo falando sobre filmes e series"),
+                field(context,
+                    title: 'Jogos',
+                    percentage: 100,
+                    subtitle: "Preciso nem falar nada né?"),
+                field(context,
+                    title: 'Músicas',
+                    percentage: 80,
+                    subtitle:
+                        "Até que ponto você é gada eu não sei, mas deixei alto essa porcentagem pq aparentemente é isso\nTirando sertanejo que ninguém merece"),
+                field(context,
+                    title: 'Comida',
+                    percentage: 30,
+                    subtitle:
+                        "Seu gosto para comida é duvidoso, gosta de azeitona, alho e pamonha eca"),
+                field(context,
+                    title: 'Amizades',
+                    percentage: 20,
+                    subtitle:
+                        "Os ciclos de amizades que temos são EXTREMAMENTE diferentes"),
+                field(context,
+                    title: 'Situações de conflito',
+                    percentage: 0,
+                    subtitle:
+                        "Morro de medo, só de ver sua carinha dá de saber que já vai ter barraco"),
                 SizedBox(
-                  width: size.width,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Fofocas',
-                            style: TextStyles.titleCard,
-                          ),
-                          Text(
-                            '100%',
-                            style: TextStyles.titleCard.copyWith(
-                              color: Colors.yellow,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: Stack(
-                          children: [
-                            Container(
-                              height: 10.h,
-                              width: double.maxFinite,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: ColorsApp.gray,
-                              ),
-                            ),
-                            Container(
-                              height: 10.h,
-                              width: size.width * 0.6,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.yellow,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Text(
-                        'Nossa conversa no inicio era movimentada 1000% sobre fofoca sksksksk',
-                        style: TextStyles.subTitleCard,
-                        textAlign: TextAlign.left,
-                      ),
-                    ],
-                  ),
+                  height: 50.h,
                 )
               ],
             ),
@@ -126,6 +104,63 @@ class PercentageCards extends StatelessWidget {
       );
     });
   }
-}
 
-class TextStylesApp {}
+  Widget field(context, {title, percentage, subtitle}) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.9,
+      padding: const EdgeInsets.only(top: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title,
+                style: TextStyles.titleCard,
+              ),
+              Text(
+                '$percentage%',
+                style: TextStyles.titleCard.copyWith(
+                  color: Colors.yellow,
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: Stack(
+              children: [
+                Container(
+                  height: 10.h,
+                  width: double.maxFinite,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: ColorsApp.gray,
+                  ),
+                ),
+                Container(
+                  height: 10.h,
+                  width: MediaQuery.of(context).size.width *
+                      0.9 *
+                      percentage /
+                      100,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.yellow,
+                  ),
+                )
+              ],
+            ),
+          ),
+          Text(
+            subtitle,
+            style: TextStyles.subTitleCard,
+            textAlign: TextAlign.left,
+          ),
+        ],
+      ),
+    );
+  }
+}

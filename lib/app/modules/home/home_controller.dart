@@ -1,11 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../data/models/all_data/all_data_model.dart';
-import '../../data/models/story/story_icon_model.dart';
 import '../../data/models/topic/topic_model.dart';
 
 part 'home_controller.g.dart';

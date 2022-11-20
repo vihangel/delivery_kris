@@ -1,6 +1,8 @@
 import 'package:delivery_kris/app/data/models/information/information_model.dart';
 import 'package:delivery_kris/app/data/models/story/story_icon_model.dart';
 import 'package:delivery_kris/app/data/service/teste_crud.dart';
+import 'package:delivery_kris/app/modules/special_card/checklist.dart';
+import 'package:delivery_kris/app/modules/special_card/pinterest.dart';
 import 'package:delivery_kris/app/modules/special_card/tic_tac_toe.dart/tic_tac_toe.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -97,14 +99,14 @@ class _HomePageState extends State<HomePage> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              TextButton(
-                  child: const Text('Teste db collection ticket'),
-                  onPressed: () {
-                    service.testeCrud(
-                        name: "teste maroto",
-                        value: 5,
-                        subTitle: "Essa é uma descrição marota");
-                  }),
+              // TextButton(
+              //     child: const Text('Teste db collection ticket'),
+              //     onPressed: () {
+              //       service.testeCrud(
+              //           name: "teste maroto",
+              //           value: 5,
+              //           subTitle: "Essa é uma descrição marota");
+              //     }),
               SizedBox(
                 height: 20.h,
               ),
@@ -121,53 +123,86 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 20.h,
               ),
-              SizedBox(
-                height: 100,
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     CardWidget(
                       onTap: () async {
                         Modular.to.push(
                           MaterialPageRoute(
-                            builder: (context) => PercentageCards(
+                            builder: (context) => CheckListEspecial(
                               story: StoryIconModel(InformationModel(),
                                   title: "Especial",
-                                  icon: "kris.png",
-                                  subTitle: "Porcentagens"),
+                                  icon: "coringa.png",
+                                  subTitle: "CheckList"),
                             ),
                           ),
                         );
                       },
-                      icon: 'kris.png',
-                      subTitle: "Porcentagens",
+                      icon: 'coringa.png',
+                      subTitle: "CheckList",
+                      title: "Especial",
+                    ),
+                    CardWidget(
+                      onTap: () async {
+                        Modular.to.push(
+                          MaterialPageRoute(
+                            builder: (context) => PinterestEspecial(
+                              story: StoryIconModel(InformationModel(),
+                                  title: "Especial",
+                                  icon: "coringa.png",
+                                  subTitle: "Pinterest"),
+                            ),
+                          ),
+                        );
+                      },
+                      icon: 'coringa.png',
+                      subTitle: "Pinterest",
                       title: "Especial",
                     ),
                   ],
                 ),
               ),
-              SizedBox(
-                height: 100,
-                child: Row(
-                  children: [
-                    CardWidget(
-                      onTap: () async {
-                        Modular.to.push(
-                          MaterialPageRoute(
-                            builder: (context) => TicTacToeWidget(
-                              story: StoryIconModel(InformationModel(),
-                                  title: "Especial",
-                                  icon: "kris.png",
-                                  subTitle: "Porcentagens"),
-                            ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  CardWidget(
+                    onTap: () async {
+                      Modular.to.push(
+                        MaterialPageRoute(
+                          builder: (context) => TicTacToeWidget(
+                            story: StoryIconModel(InformationModel(),
+                                title: "Especial",
+                                icon: "coringa.png",
+                                subTitle: "Jogo da velha"),
                           ),
-                        );
-                      },
-                      icon: 'kris.png',
-                      subTitle: "Porcentagens",
-                      title: "Especial",
-                    ),
-                  ],
-                ),
+                        ),
+                      );
+                    },
+                    icon: 'coringa.png',
+                    subTitle: "Jogo da velha",
+                    title: "Especial",
+                  ),
+                  CardWidget(
+                    onTap: () async {
+                      Modular.to.push(
+                        MaterialPageRoute(
+                          builder: (context) => PercentageCards(
+                            story: StoryIconModel(InformationModel(),
+                                title: "Especial",
+                                icon: "coringa.png",
+                                subTitle: "Porcentagens"),
+                          ),
+                        ),
+                      );
+                    },
+                    icon: 'coringa.png',
+                    subTitle: "Porcentagens",
+                    title: "Especial",
+                  ),
+                ],
               ),
               Observer(
                 builder: (context) {
@@ -215,7 +250,7 @@ class _HomePageState extends State<HomePage> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 10),
                               crossAxisSpacing: 30.w,
-                              mainAxisSpacing: 30.h,
+                              childAspectRatio: 0.8,
                               children: List.generate(
                                 controller.data[topic].infos!.length,
                                 (index) {
