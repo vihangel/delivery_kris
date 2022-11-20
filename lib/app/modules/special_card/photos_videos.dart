@@ -28,16 +28,25 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
     _controller = _controller = VideoPlayerController.network(
         "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we1.mp4?raw=true")
       ..initialize().then((_) {
+        _controller.play();
+        _controller.pause();
+        _controller.setLooping(true);
         setState(() {});
       });
     _controller2 = VideoPlayerController.network(
         "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we2.mp4?raw=true")
       ..initialize().then((_) {
+        _controller2.play();
+        _controller2.pause();
+        _controller2.setLooping(true);
         setState(() {});
       });
     _controller3 = VideoPlayerController.network(
         "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we3.mp4?raw=true")
       ..initialize().then((_) {
+        _controller3.play();
+        _controller3.pause();
+        _controller3.setLooping(true);
         setState(() {});
       });
   }
