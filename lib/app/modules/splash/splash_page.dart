@@ -27,7 +27,7 @@ class _SplashPageState extends State<SplashPage> {
       Alert.open(context,
           title: "Já é seu aniversário? \nNão. Então, volte na data certa!\n",
           subTitle:
-              "Aguarde até o dia 21/11/2022\nAinda faltam ${DateTime(2022, 11, 21).difference(DateTime.now()).inHours} horas",
+              "Aguarde até o dia 21/11/2022\nAinda faltam ${DateTime(2022, 11, 21).difference(DateTime.now()).inMinutes} minutos",
           functionMainButton: () => Navigator.pop(context));
     } else {
       Alert.open(context,
