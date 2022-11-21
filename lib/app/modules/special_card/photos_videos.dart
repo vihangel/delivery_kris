@@ -31,7 +31,7 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
             muted: false,
             poster:
                 'https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we1_banner.jpg?raw=true',
-            // aspectRatio: '16:9',
+            aspectRatio: '16:9',
             fluid: false,
             language: 'pt',
             liveui: false,
@@ -52,7 +52,7 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
             muted: false,
             poster:
                 'https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we2_banner.jpg?raw=true',
-            // aspectRatio: '16:9',
+            aspectRatio: '16:9',
             fluid: false,
             language: 'pt',
             liveui: false,
@@ -73,7 +73,7 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
             muted: false,
             poster:
                 'https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we3_banner.jpg?raw=true',
-            // aspectRatio: '16:9',
+            aspectRatio: '16:9',
             fluid: false,
             language: 'pt',
             liveui: false,
