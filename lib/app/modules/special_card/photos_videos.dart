@@ -21,48 +21,82 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
   late VideoJsController _controller;
   late VideoJsController _controller2;
   late VideoJsController _controller3;
+  bool loaded = false;
 
-  @override
-  void initState() {
-    super.initState();
+  videosLoader() async {
     _controller = VideoJsController("videoId",
         videoJsOptions: VideoJsOptions(
             controls: true,
             loop: false,
             muted: false,
             poster:
-                'https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we1_banner.png?raw=true',
+                'https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we1_banner.jpg?raw=true',
             aspectRatio: '16:9',
             fluid: false,
             language: 'en',
             liveui: false,
             notSupportedMessage: 'this movie type not supported',
             playbackRates: [1, 2, 3],
-            preferFullWindow: false,
-            responsive: false,
+            preferFullWindow: true,
+            responsive: true,
             sources: [
               Source(
                   "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we1.mp4?raw=true",
                   "video/mp4")
             ],
             suppressNotSupportedError: false));
+    _controller2 = VideoJsController("videoId2",
+        videoJsOptions: VideoJsOptions(
+            controls: true,
+            loop: false,
+            muted: false,
+            poster:
+                'https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we2_banner.jpg?raw=true',
+            aspectRatio: '16:9',
+            fluid: false,
+            language: 'en',
+            liveui: false,
+            notSupportedMessage: 'this movie type not supported',
+            playbackRates: [1, 2, 3],
+            preferFullWindow: true,
+            responsive: true,
+            sources: [
+              Source(
+                  "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we2.mp4?raw=true",
+                  "video/mp4")
+            ],
+            suppressNotSupportedError: false));
+    _controller3 = VideoJsController("videoId3",
+        videoJsOptions: VideoJsOptions(
+            controls: true,
+            loop: false,
+            muted: false,
+            poster:
+                'https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we3_banner.jpg?raw=true',
+            aspectRatio: '16:9',
+            fluid: false,
+            language: 'en',
+            liveui: false,
+            notSupportedMessage: 'this movie type not supported',
+            playbackRates: [1, 2, 3],
+            preferFullWindow: true,
+            responsive: true,
+            sources: [
+              Source(
+                  "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we3.mp4?raw=true",
+                  "video/mp4")
+            ],
+            suppressNotSupportedError: false));
+    setState(() {
+      loaded = true;
+    });
+  }
 
-    // _controller2 = VideoJsController.network(
-    //     "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we2.mp4?raw=true")
-    //   ..initialize().then((_) {
-    //     _controller2.play();
-    //     _controller2.pause();
-    //     _controller2.setLooping(true);
-    //     setState(() {});
-    //   });
-    // _controller3 = VideoJsController.network(
-    //     "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we3.mp4?raw=true")
-    //   ..initialize().then((_) {
-    //     _controller3.play();
-    //     _controller3.pause();
-    //     _controller3.setLooping(true);
-    //     setState(() {});
-    //   });
+  @override
+  void initState() {
+    super.initState();
+    loaded = false;
+    videosLoader();
   }
 
   @override
@@ -208,9 +242,9 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
                   ),
                 ],
               ),
-              videoField(_controller),
-              // videoField(_controller2),
-              // videoField(_controller3),
+              loaded ? videoField(_controller) : Container(),
+              loaded ? videoField(_controller2) : Container(),
+              loaded ? videoField(_controller3) : Container(),
               Row(
                 children: [
                   Expanded(
