@@ -31,14 +31,14 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
             muted: false,
             poster:
                 'https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we1_banner.jpg?raw=true',
-            aspectRatio: '16:9',
+            // aspectRatio: '16:9',
             fluid: false,
-            language: 'en',
+            language: 'pt',
             liveui: false,
             notSupportedMessage: 'this movie type not supported',
             playbackRates: [1, 2, 3],
-            preferFullWindow: true,
-            responsive: true,
+            // preferFullWindow: true,
+            // responsive: true,
             sources: [
               Source(
                   "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we1.mp4?raw=true",
@@ -52,14 +52,14 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
             muted: false,
             poster:
                 'https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we2_banner.jpg?raw=true',
-            aspectRatio: '16:9',
+            // aspectRatio: '16:9',
             fluid: false,
-            language: 'en',
+            language: 'pt',
             liveui: false,
             notSupportedMessage: 'this movie type not supported',
             playbackRates: [1, 2, 3],
-            preferFullWindow: true,
-            responsive: true,
+            // preferFullWindow: true,
+            // rresponsive: true,
             sources: [
               Source(
                   "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we2.mp4?raw=true",
@@ -73,22 +73,24 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
             muted: false,
             poster:
                 'https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we3_banner.jpg?raw=true',
-            aspectRatio: '16:9',
+            // aspectRatio: '16:9',
             fluid: false,
-            language: 'en',
+            language: 'pt',
             liveui: false,
             notSupportedMessage: 'this movie type not supported',
             playbackRates: [1, 2, 3],
-            preferFullWindow: true,
-            responsive: true,
+            // preferFullWindow: true,
+            // responsive: true,
             sources: [
               Source(
                   "https://github.com/vihangel/delivery_kris/blob/main/assets/img/photos/we3.mp4?raw=true",
                   "video/mp4")
             ],
             suppressNotSupportedError: false));
-    setState(() {
-      loaded = true;
+    Future.delayed(const Duration(milliseconds: 500), () {
+      setState(() {
+        loaded = true;
+      });
     });
   }
 
@@ -242,6 +244,10 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
                   ),
                 ],
               ),
+              Text(
+                "Talvez, muito talvez, tenha alguns bugs no player do video",
+                style: TextStyles.subTitleCard,
+              ),
               loaded ? videoField(_controller) : Container(),
               loaded ? videoField(_controller2) : Container(),
               loaded ? videoField(_controller3) : Container(),
@@ -327,35 +333,13 @@ class _PhotosEspecialState extends State<PhotosEspecial> {
   }
 
   videoField(controller) {
-    return Column(
-      children: [
-        VideoJsWidget(
-          videoJsController: controller,
-          height: MediaQuery.of(context).size.width,
-          width: MediaQuery.of(context).size.width,
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: InkWell(
-            onTap: () {
-              setState(() {
-                controller.isPaused((isPlaying) {
-                  isPlaying != true ? controller.pause() : controller.play();
-                });
-              });
-            },
-            child: Icon(
-              controller.isPaused((isPlaying) {
-                        return isPlaying;
-                      }) !=
-                      true
-                  ? Icons.pause
-                  : Icons.play_arrow,
-              color: ColorsApp.white,
-            ),
-          ),
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20.0),
+      child: VideoJsWidget(
+        videoJsController: controller,
+        height: MediaQuery.of(context).size.width,
+        width: MediaQuery.of(context).size.width,
+      ),
     );
   }
 }
