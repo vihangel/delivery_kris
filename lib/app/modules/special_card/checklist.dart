@@ -96,6 +96,10 @@ class CheckListEspecial extends StatelessWidget {
                   context,
                   'Viajar de carro',
                 ),
+                  field(
+                  context,
+                  'Aprender a fazer comida japonesa',
+                ),
                 Row(
                   children: [
                     Expanded(
